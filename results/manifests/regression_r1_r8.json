@@ -1,0 +1,70 @@
+{
+  "results": [
+    {
+      "id": "R1",
+      "corrected": null,
+      "detail": {
+        "skipped": "umbral not in this venv"
+      }
+    },
+    {
+      "id": "R2",
+      "corrected": true,
+      "detail": {
+        "rejected": true,
+        "past_witness": "past",
+        "worst_past": 1.0
+      }
+    },
+    {
+      "id": "R3",
+      "corrected": true,
+      "detail": {
+        "vetoed": true,
+        "no_material_installed": true
+      }
+    },
+    {
+      "id": "R4",
+      "corrected": true,
+      "detail": {
+        "noninterference": true,
+        "lowobs_scopes": 0,
+        "highobs_scopes": 1
+      }
+    },
+    {
+      "id": "R5",
+      "corrected": true,
+      "detail": {
+        "foreign_rejected": true
+      }
+    },
+    {
+      "id": "R6",
+      "corrected": true,
+      "detail": {
+        "active_rejected": true,
+        "fresh_accepted": true
+      }
+    },
+    {
+      "id": "R7",
+      "corrected": true,
+      "detail": {
+        "still_authorized_at_10": false,
+        "state_now": 10
+      }
+    },
+    {
+      "id": "R8",
+      "corrected": true,
+      "detail": {
+        "openable": true,
+        "authorized_now": false,
+        "past": 1.0
+      }
+    }
+  ],
+  "regressed": []
+}

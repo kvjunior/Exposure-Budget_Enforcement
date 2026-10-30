@@ -1,0 +1,44 @@
+{
+  "batch": "P3A",
+  "tests_run": 29,
+  "failures": 0,
+  "errors": 0,
+  "observations": {
+    "worked_trace": {
+      "view_at_3": [
+        "ARRIVAL",
+        "DOWN"
+      ],
+      "view_at_4": [
+        "ARRIVAL",
+        "DOWN",
+        "UP",
+        "PRODUCED"
+      ],
+      "served_branch": {
+        "pending": 0,
+        "served": 1,
+        "rejected": 0,
+        "expired": 0,
+        "waiting_ticks": 4
+      },
+      "no_completion_branch": {
+        "pending": 0,
+        "served": 0,
+        "rejected": 0,
+        "expired": 1,
+        "waiting_ticks": 6
+      }
+    },
+    "prefix_noninterference": {
+      "visible_version": 1,
+      "extended_full_version": 21
+    },
+    "independent_reference": {
+      "tapes": 1296,
+      "transitions": 5184
+    },
+    "simultaneous_batch_permutations": 24
+  },
+  "scope": "typed-input/queue/log tests; not a timed PRE simulator or cryptographic proof"
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DelegationEvent",
+  "type": "object",
+  "required": ["t", "type"],
+  "properties": {
+    "t": {"type": "integer", "minimum": 0},
+    "type": {"enum": ["StreamAuthorized","ScopeActivated","RecordProduced","GrantIssued",
+      "GrantRevoked","KFragInstalled","CFragProduced","OwnerAvailability",
+      "CorruptProxy","CorruptRecipient","DiscloseDataKey","DiscloseScopeKey","DisclosePlaintext"]}
+  },
+  "additionalProperties": true
+}

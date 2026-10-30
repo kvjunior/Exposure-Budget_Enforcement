@@ -1,0 +1,642 @@
+{
+  "batch": "2.2.1",
+  "tests_run": 18,
+  "failures": 0,
+  "errors": 0,
+  "observations": {
+    "R22-01_default": {
+      "times": [
+        3,
+        4
+      ],
+      "past": 0
+    },
+    "R22-02_metadata": {
+      "oracle": {
+        "cost": 24.0,
+        "replay": [
+          true,
+          24.0,
+          "ok (served 1, unserved 2)"
+        ],
+        "plans": [
+          [
+            {
+              "kind": "admit_grant",
+              "grant": {
+                "grant_id": "BROAD",
+                "owner": "O",
+                "recipient": "R",
+                "scope": {
+                  "stream": "g",
+                  "epoch": 0
+                },
+                "rng": {
+                  "stream": "g",
+                  "lo": 0,
+                  "hi": 3
+                },
+                "threshold": 1,
+                "shares": 1,
+                "proxies": [
+                  "p0"
+                ],
+                "valid_from": 0,
+                "valid_to": null
+              },
+              "scope": null,
+              "reason": "enumerated admit (token) indices=()",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": []
+            }
+          ],
+          [
+            {
+              "kind": "activate_scope",
+              "grant": null,
+              "scope": {
+                "stream": "g",
+                "epoch": 1
+              },
+              "reason": "enumerated rollover",
+              "new_scope_key_id": "g.e1.k0",
+              "start_seq": 3,
+              "authorized_kfrag_indices": []
+            }
+          ],
+          [
+            {
+              "kind": "admit_grant",
+              "grant": {
+                "grant_id": "N2",
+                "owner": "O",
+                "recipient": "R",
+                "scope": {
+                  "stream": "g",
+                  "epoch": 0
+                },
+                "rng": {
+                  "stream": "g",
+                  "lo": 2,
+                  "hi": 3
+                },
+                "threshold": 1,
+                "shares": 1,
+                "proxies": [
+                  "p0"
+                ],
+                "valid_from": 0,
+                "valid_to": null
+              },
+              "scope": null,
+              "reason": "enumerated admit (token) indices=(0,)",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": [
+                0
+              ]
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "cost": 24.0,
+        "served": 1,
+        "replay": [
+          true,
+          24.0,
+          "ok (served 1, unserved 2)"
+        ],
+        "plans": [
+          [
+            {
+              "kind": "admit_grant",
+              "grant": {
+                "grant_id": "BROAD",
+                "owner": "O",
+                "recipient": "R",
+                "scope": {
+                  "stream": "g",
+                  "epoch": 0
+                },
+                "rng": {
+                  "stream": "g",
+                  "lo": 0,
+                  "hi": 3
+                },
+                "threshold": 1,
+                "shares": 1,
+                "proxies": [
+                  "p0"
+                ],
+                "valid_from": 0,
+                "valid_to": null
+              },
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": []
+            }
+          ],
+          [
+            {
+              "kind": "activate_scope",
+              "grant": null,
+              "scope": {
+                "stream": "g",
+                "epoch": 1
+              },
+              "reason": "",
+              "new_scope_key_id": "g.e1.k0",
+              "start_seq": 3,
+              "authorized_kfrag_indices": []
+            }
+          ],
+          [
+            {
+              "kind": "admit_grant",
+              "grant": {
+                "grant_id": "N2",
+                "owner": "O",
+                "recipient": "R",
+                "scope": {
+                  "stream": "g",
+                  "epoch": 0
+                },
+                "rng": {
+                  "stream": "g",
+                  "lo": 2,
+                  "hi": 3
+                },
+                "threshold": 1,
+                "shares": 1,
+                "proxies": [
+                  "p0"
+                ],
+                "valid_from": 0,
+                "valid_to": null
+              },
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": [
+                0
+              ]
+            }
+          ]
+        ]
+      },
+      "original_25_witness": {
+        "plans": [
+          [
+            {
+              "kind": "admit_grant",
+              "grant": {
+                "grant_id": "BROAD",
+                "owner": "O",
+                "recipient": "R",
+                "scope": {
+                  "stream": "g",
+                  "epoch": 0
+                },
+                "rng": {
+                  "stream": "g",
+                  "lo": 0,
+                  "hi": 3
+                },
+                "threshold": 1,
+                "shares": 1,
+                "proxies": [
+                  "p0"
+                ],
+                "valid_from": 0,
+                "valid_to": null
+              },
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": []
+            }
+          ],
+          [
+            {
+              "kind": "activate_scope",
+              "grant": null,
+              "scope": {
+                "stream": "g",
+                "epoch": 1
+              },
+              "reason": "",
+              "new_scope_key_id": "g.e1.k0",
+              "start_seq": 3,
+              "authorized_kfrag_indices": []
+            },
+            {
+              "kind": "admit_grant",
+              "grant": {
+                "grant_id": "N1",
+                "owner": "O",
+                "recipient": "R",
+                "scope": {
+                  "stream": "g",
+                  "epoch": 0
+                },
+                "rng": {
+                  "stream": "g",
+                  "lo": 1,
+                  "hi": 2
+                },
+                "threshold": 1,
+                "shares": 1,
+                "proxies": [
+                  "p0"
+                ],
+                "valid_from": 0,
+                "valid_to": null
+              },
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": [
+                0
+              ]
+            }
+          ],
+          [
+            {
+              "kind": "admit_grant",
+              "grant": {
+                "grant_id": "N2",
+                "owner": "O",
+                "recipient": "R",
+                "scope": {
+                  "stream": "g",
+                  "epoch": 0
+                },
+                "rng": {
+                  "stream": "g",
+                  "lo": 2,
+                  "hi": 3
+                },
+                "threshold": 1,
+                "shares": 1,
+                "proxies": [
+                  "p0"
+                ],
+                "valid_from": 0,
+                "valid_to": null
+              },
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": [
+                0
+              ]
+            }
+          ]
+        ],
+        "replay": [
+          true,
+          25.0,
+          "ok (served 2, unserved 1)"
+        ]
+      }
+    },
+    "R22-01_noncanonical_approval": "ValueError before delivery",
+    "matrix": [
+      {
+        "K": 1,
+        "threshold": 1,
+        "future_budget": 0,
+        "authority": "online",
+        "oracle_cost": 2.0,
+        "reference_cost": 2.0
+      },
+      {
+        "K": 1,
+        "threshold": 1,
+        "future_budget": 0,
+        "authority": "offline_valid",
+        "oracle_cost": 2.0,
+        "reference_cost": 2.0
+      },
+      {
+        "K": 1,
+        "threshold": 1,
+        "future_budget": 0,
+        "authority": "scope_only",
+        "oracle_cost": 20.0,
+        "reference_cost": 20.0
+      },
+      {
+        "K": 1,
+        "threshold": 1,
+        "future_budget": 1,
+        "authority": "online",
+        "oracle_cost": 2.0,
+        "reference_cost": 2.0
+      },
+      {
+        "K": 1,
+        "threshold": 1,
+        "future_budget": 1,
+        "authority": "offline_valid",
+        "oracle_cost": 2.0,
+        "reference_cost": 2.0
+      },
+      {
+        "K": 1,
+        "threshold": 1,
+        "future_budget": 1,
+        "authority": "scope_only",
+        "oracle_cost": 20.0,
+        "reference_cost": 20.0
+      },
+      {
+        "K": 1,
+        "threshold": 2,
+        "future_budget": 0,
+        "authority": "online",
+        "oracle_cost": 4.0,
+        "reference_cost": 4.0
+      },
+      {
+        "K": 1,
+        "threshold": 2,
+        "future_budget": 0,
+        "authority": "offline_valid",
+        "oracle_cost": 4.0,
+        "reference_cost": 4.0
+      },
+      {
+        "K": 1,
+        "threshold": 2,
+        "future_budget": 0,
+        "authority": "scope_only",
+        "oracle_cost": 20.0,
+        "reference_cost": 20.0
+      },
+      {
+        "K": 1,
+        "threshold": 2,
+        "future_budget": 1,
+        "authority": "online",
+        "oracle_cost": 4.0,
+        "reference_cost": 4.0
+      },
+      {
+        "K": 1,
+        "threshold": 2,
+        "future_budget": 1,
+        "authority": "offline_valid",
+        "oracle_cost": 4.0,
+        "reference_cost": 4.0
+      },
+      {
+        "K": 1,
+        "threshold": 2,
+        "future_budget": 1,
+        "authority": "scope_only",
+        "oracle_cost": 20.0,
+        "reference_cost": 20.0
+      },
+      {
+        "K": 2,
+        "threshold": 1,
+        "future_budget": 0,
+        "authority": "online",
+        "oracle_cost": 2.0,
+        "reference_cost": 2.0
+      },
+      {
+        "K": 2,
+        "threshold": 1,
+        "future_budget": 0,
+        "authority": "offline_valid",
+        "oracle_cost": 2.0,
+        "reference_cost": 2.0
+      },
+      {
+        "K": 2,
+        "threshold": 1,
+        "future_budget": 0,
+        "authority": "scope_only",
+        "oracle_cost": 20.0,
+        "reference_cost": 20.0
+      },
+      {
+        "K": 2,
+        "threshold": 1,
+        "future_budget": 1,
+        "authority": "online",
+        "oracle_cost": 2.0,
+        "reference_cost": 2.0
+      },
+      {
+        "K": 2,
+        "threshold": 1,
+        "future_budget": 1,
+        "authority": "offline_valid",
+        "oracle_cost": 2.0,
+        "reference_cost": 2.0
+      },
+      {
+        "K": 2,
+        "threshold": 1,
+        "future_budget": 1,
+        "authority": "scope_only",
+        "oracle_cost": 20.0,
+        "reference_cost": 20.0
+      },
+      {
+        "K": 2,
+        "threshold": 2,
+        "future_budget": 0,
+        "authority": "online",
+        "oracle_cost": 4.0,
+        "reference_cost": 4.0
+      },
+      {
+        "K": 2,
+        "threshold": 2,
+        "future_budget": 0,
+        "authority": "offline_valid",
+        "oracle_cost": 4.0,
+        "reference_cost": 4.0
+      },
+      {
+        "K": 2,
+        "threshold": 2,
+        "future_budget": 0,
+        "authority": "scope_only",
+        "oracle_cost": 20.0,
+        "reference_cost": 20.0
+      },
+      {
+        "K": 2,
+        "threshold": 2,
+        "future_budget": 1,
+        "authority": "online",
+        "oracle_cost": 4.0,
+        "reference_cost": 4.0
+      },
+      {
+        "K": 2,
+        "threshold": 2,
+        "future_budget": 1,
+        "authority": "offline_valid",
+        "oracle_cost": 4.0,
+        "reference_cost": 4.0
+      },
+      {
+        "K": 2,
+        "threshold": 2,
+        "future_budget": 1,
+        "authority": "scope_only",
+        "oracle_cost": 20.0,
+        "reference_cost": 20.0
+      }
+    ],
+    "R22-03_K1": {
+      "oracle": {
+        "cost": 20.0,
+        "replay": [
+          true,
+          20.0,
+          "ok (served 0, unserved 2)"
+        ],
+        "plans": [
+          [
+            {
+              "kind": "defer",
+              "grant": null,
+              "scope": null,
+              "reason": "enumerated",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": []
+            }
+          ],
+          [
+            {
+              "kind": "defer",
+              "grant": null,
+              "scope": null,
+              "reason": "enumerated",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": []
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "cost": 20.0,
+        "served": 0,
+        "replay": [
+          true,
+          20.0,
+          "ok (served 0, unserved 2)"
+        ],
+        "plans": [
+          [
+            {
+              "kind": "defer",
+              "grant": null,
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": []
+            }
+          ],
+          [
+            {
+              "kind": "defer",
+              "grant": null,
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": []
+            }
+          ]
+        ]
+      }
+    },
+    "R22-03_scope_vs_grant": {
+      "oracle": {
+        "cost": 20.0,
+        "replay": [
+          true,
+          20.0,
+          "ok (served 0, unserved 2)"
+        ],
+        "plans": [
+          [
+            {
+              "kind": "defer",
+              "grant": null,
+              "scope": null,
+              "reason": "enumerated",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": []
+            }
+          ],
+          [
+            {
+              "kind": "defer",
+              "grant": null,
+              "scope": null,
+              "reason": "enumerated",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": []
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "cost": 20.0,
+        "served": 0,
+        "replay": [
+          true,
+          20.0,
+          "ok (served 0, unserved 2)"
+        ],
+        "plans": [
+          [
+            {
+              "kind": "defer",
+              "grant": null,
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": []
+            }
+          ],
+          [
+            {
+              "kind": "defer",
+              "grant": null,
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": []
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "scope": "bounded model/code regression evidence; no cryptographic or novelty proof"
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DecisionLog",
+  "type": "object",
+  "required": ["observation_cutoff","action","checker_ok","reason"],
+  "properties": {
+    "observation_cutoff": {"type": "integer"},
+    "config_hash": {"type": "string"},
+    "action": {"enum": ["admit_grant","defer","reject","activate_scope","unsupported"]},
+    "checker_ok": {"type": "boolean"},
+    "reason": {"type": "string"},
+    "compute_ms": {"type": "number"},
+    "state_version": {"type": "integer"}
+  },
+  "additionalProperties": true
+}

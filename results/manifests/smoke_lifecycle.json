@@ -1,0 +1,55 @@
+{
+  "run_kind": "smoke",
+  "label": "NOT a performance result (single-process container; no device-performance claim)",
+  "env": {
+    "python": "3.12.3",
+    "platform": "Linux-6.18.44-fc-v180-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "logical_cpus_reported": 1,
+    "cryptography": "43.0.3",
+    "hpke": "0.3.2"
+  },
+  "suite": "HPKE-P256-SHA256-AES256GCM/Ed25519/AES256GCM",
+  "wall_time_s": 0.0321,
+  "observations": [
+    {
+      "step": "produce",
+      "n": 5,
+      "produce_ms_mean": 0.2401820000045518
+    },
+    {
+      "step": "request1",
+      "owner_online": true,
+      "action": "admit_grant",
+      "checker_ok": true,
+      "reason": "admissible grant (no fragment delivery declared)"
+    },
+    {
+      "step": "rewrap_deliver",
+      "n": 5,
+      "rewrap_ms_mean": 0.2644663999944896,
+      "open_ms_mean": 0.21317880000424339,
+      "payload_bytes_reencrypted": 0,
+      "note": "only key envelope rewrapped; payload unchanged"
+    },
+    {
+      "step": "request2_offline",
+      "owner_online": false,
+      "action": "defer",
+      "checker_ok": true,
+      "reason": "owner offline; defer grant"
+    },
+    {
+      "step": "offline_rollover",
+      "without_preauth_ok": false,
+      "with_preauth_ok": true,
+      "reason_no": "owner offline and no preauth: cannot activate scope",
+      "reason_yes": "fresh offline activation authorized by preauth token"
+    }
+  ],
+  "measured_ops_ms": {
+    "produce_mean": 0.2402,
+    "rewrap_mean": 0.2645,
+    "open_mean": 0.2132
+  }
+}

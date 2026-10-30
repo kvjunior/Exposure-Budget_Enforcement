@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "suite": "adspre_diag",
+    "description": "ADS-PRE correctness and coalition exposure (self-contained, diagnostic)",
+    "python": "3.12.3",
+    "platform": "Linux-6.18.44-fc-v153-x86_64-with-glibc2.39",
+    "utc": "2026-10-24T15:21:06+00:00",
+    "packages": {
+      "umbral": "0.3.0",
+      "cryptography": "3.4.8"
+    }
+  },
+  "results": [
+    {
+      "id": "V2-a",
+      "category": "TYPE-CHECK",
+      "expected": false,
+      "observed": false,
+      "match": true,
+      "establishes": "published V2 Alg.8 'D/Omega' with Omega a POINT is undefined (expected False)",
+      "not_established": "nothing about V1; this is the V2 typing error only",
+      "detail": {}
+    },
+    {
+      "id": "V2-b",
+      "category": "OBSERVATION",
+      "expected": false,
+      "observed": false,
+      "match": true,
+      "establishes": "V2 Dec2 does NOT recover omega (expected False): it recovers H4(omega)",
+      "not_established": "\u2014",
+      "detail": {}
+    },
+    {
+      "id": "V2-c",
+      "category": "OBSERVATION",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "V2 Dec2 recovers H4(omega), a hash that cannot be inverted to omega",
+      "not_established": "\u2014",
+      "detail": {}
+    },
+    {
+      "id": "C1-a",
+      "category": "OBSERVATION",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "proxy(Omega)+delegatee(omega) recover x_j = d_j + Phi_j*H2(ID_j,Ppub)",
+      "not_established": "recovery of Phi_j, d_j, or the signing secret s_j individually (see C1-c)",
+      "detail": {
+        "inputs_used": [
+          "rk.Omega (proxy)",
+          "omega (delegatee)"
+        ]
+      }
+    },
+    {
+      "id": "C1-b",
+      "category": "OBSERVATION",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "recovered x_j decrypts a fresh, never-delegated first-level ciphertext addressed to j",
+      "not_established": "any effect on ciphertexts addressed to other receivers",
+      "detail": {
+        "inputs_used": [
+          "x_j (recovered)"
+        ]
+      }
+    },
+    {
+      "id": "C1-c",
+      "category": "IDENTITY",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "the algebraic identity s_j = x_j + Phi_j*(1 - H2) holds (verified on this instance)",
+      "not_established": "it does NOT by itself prove s_j is hard to recover. Rearranged, Phi_j = (s_j - x_j)/(1 - H2) requires H2 != 1 (else undefined) and knowledge of s_j; from the coalition view (x_j and the public (Phi_j+d_j)P) obtaining Phi_j is an ECDL instance. Whether the FULL adversary view yields s_j is a separate claim needing a proof, not shown here.",
+      "detail": {
+        "h2_equals_1": false,
+        "condition": "H2 != 1 for the rearrangement to be defined"
+      }
+    },
+    {
+      "id": "C1-d",
+      "category": "OBSERVATION",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "proxy+delegatee+KGC (adds d_j) recover Phi_j, hence the full private key (Phi_j,d_j)",
+      "not_established": "this needs the KGC in the coalition; without d_j it is the ECDL of C1-c",
+      "detail": {
+        "inputs_used": [
+          "x_j (recovered)",
+          "d_j (KGC)"
+        ]
+      }
+    },
+    {
+      "id": "AG-pass",
+      "category": "OBSERVATION",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "both tampered records still pass the per-item cloud f-check",
+      "not_established": "\u2014",
+      "detail": {}
+    },
+    {
+      "id": "AG-accept",
+      "category": "OBSERVATION",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "the aggregate theta-check ACCEPTS the batch though neither theta is individually valid",
+      "not_established": "\u2014",
+      "detail": {}
+    },
+    {
+      "id": "AG-invalid",
+      "category": "OBSERVATION",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "neither individual theta verifies: the sum cancelled the tampering",
+      "not_established": "\u2014",
+      "detail": {}
+    },
+    {
+      "id": "RP-replay",
+      "category": "OBSERVATION",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "a replayed record is accepted again inside a later aggregate (no freshness bound)",
+      "not_established": "\u2014",
+      "detail": {}
+    },
+    {
+      "id": "OM-omit",
+      "category": "OBSERVATION",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "dropping a record and its theta still verifies (no completeness bound)",
+      "not_established": "\u2014",
+      "detail": {}
+    }
+  ],
+  "summary": {
+    "total": 12,
+    "unexpected": []
+  }
+}

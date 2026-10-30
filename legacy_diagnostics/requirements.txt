@@ -1,0 +1,4 @@
+# Pinned for reproducibility. scope_exposure.py requires these exact versions;
+# umbral 0.3.0 requires cryptography ~=3.0 (3.4.8 is the tested pin).
+umbral==0.3.0
+cryptography==3.4.8

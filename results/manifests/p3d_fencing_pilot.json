@@ -1,0 +1,118 @@
+{
+  "batch": "P3D",
+  "run_kind": "model-simulation (fenced vs unfenced; NOT a crypto measurement)",
+  "backend": "abstract-cfrag-usability-model",
+  "env": {
+    "python": "3.13.5"
+  },
+  "parameters": {
+    "report_delay": [
+      1,
+      4
+    ],
+    "owner_offline_at_prod": [
+      false,
+      true
+    ],
+    "budget": "disclosed_weight=0 (tight)"
+  },
+  "note": "Deterministic model: we sweep documented parameters, not RNG seeds.",
+  "settings": {
+    "delay1_online": {
+      "unfenced": {
+        "actual_disclosed": 1.0,
+        "public_disclosed": 0.0,
+        "public_lag": 1.0,
+        "served": 1,
+        "expired": 0,
+        "deliveries": 4,
+        "realized_rotations": 0,
+        "budget_violation": true,
+        "total_cost": 4
+      },
+      "fenced": {
+        "actual_disclosed": 0.0,
+        "public_disclosed": 0.0,
+        "public_lag": 0.0,
+        "served": 1,
+        "expired": 0,
+        "deliveries": 4,
+        "realized_rotations": 1,
+        "budget_violation": false,
+        "total_cost": 7
+      }
+    },
+    "delay1_offline": {
+      "unfenced": {
+        "actual_disclosed": 1.0,
+        "public_disclosed": 0.0,
+        "public_lag": 1.0,
+        "served": 1,
+        "expired": 0,
+        "deliveries": 4,
+        "realized_rotations": 0,
+        "budget_violation": true,
+        "total_cost": 4
+      },
+      "fenced": {
+        "actual_disclosed": 0.0,
+        "public_disclosed": 0.0,
+        "public_lag": 0.0,
+        "served": 1,
+        "expired": 0,
+        "deliveries": 4,
+        "realized_rotations": 0,
+        "budget_violation": false,
+        "total_cost": 4
+      }
+    },
+    "delay4_online": {
+      "unfenced": {
+        "actual_disclosed": 1.0,
+        "public_disclosed": 0.0,
+        "public_lag": 1.0,
+        "served": 1,
+        "expired": 0,
+        "deliveries": 4,
+        "realized_rotations": 0,
+        "budget_violation": true,
+        "total_cost": 4
+      },
+      "fenced": {
+        "actual_disclosed": 0.0,
+        "public_disclosed": 0.0,
+        "public_lag": 0.0,
+        "served": 1,
+        "expired": 0,
+        "deliveries": 4,
+        "realized_rotations": 1,
+        "budget_violation": false,
+        "total_cost": 7
+      }
+    },
+    "delay4_offline": {
+      "unfenced": {
+        "actual_disclosed": 1.0,
+        "public_disclosed": 0.0,
+        "public_lag": 1.0,
+        "served": 1,
+        "expired": 0,
+        "deliveries": 4,
+        "realized_rotations": 0,
+        "budget_violation": true,
+        "total_cost": 4
+      },
+      "fenced": {
+        "actual_disclosed": 0.0,
+        "public_disclosed": 0.0,
+        "public_lag": 0.0,
+        "served": 1,
+        "expired": 0,
+        "deliveries": 4,
+        "realized_rotations": 0,
+        "budget_violation": false,
+        "total_cost": 4
+      }
+    }
+  }
+}

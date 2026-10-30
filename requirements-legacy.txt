@@ -1,0 +1,6 @@
+cffi==2.1.1
+cryptography==3.4.8
+pycparser==3.12
+PyNaCl==1.6.2
+setuptools==84.2.1
+umbral==0.3.0

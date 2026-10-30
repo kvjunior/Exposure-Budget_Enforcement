@@ -1,0 +1,36 @@
+{
+  "run_kind": "model-simulation (aligned surviving-problem instance; NOT a measurement)",
+  "alignment": "whole-key (t=1), single cloud-colluding coalition, one scope, budget=1 scope",
+  "note": "SACMAT 2025 has no request arrival process, no deferral, no intermittent-owner authority, and no forward exposure budget; these decisions are not expressible as its execute/skip-rotation choice.",
+  "env": {
+    "python": "3.12.3"
+  },
+  "results": {
+    "Q1_admit_online": {
+      "ok": true,
+      "reason": "admissible grant within exposure budget"
+    },
+    "Q2_offline_admit_refused": {
+      "ok": false,
+      "reason": "owner offline: cannot create new grant authorization (no grant preauthorization token matches this recipient/scope/range/validity/effects)"
+    },
+    "Q2_offline_rollover_refused_without_preauth": {
+      "ok": false,
+      "reason": "owner offline and no preauth: cannot activate scope"
+    },
+    "Q2_defer_feasible": {
+      "ok": true
+    },
+    "Q2_offline_rollover_allowed_with_preauth": {
+      "ok": true,
+      "reason": "fresh offline activation authorized by preauth token"
+    }
+  },
+  "properties": {
+    "admit_within_budget_online": true,
+    "new_grant_refused_when_owner_offline": true,
+    "rollover_refused_without_preauth": true,
+    "defer_is_feasible": true,
+    "rollover_allowed_with_preauth": true
+  }
+}

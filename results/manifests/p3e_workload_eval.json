@@ -1,0 +1,1967 @@
+{
+  "batch": "P3F-full-horizon-correction",
+  "run_kind": "model-simulation (declared units; NOT crypto/wall-clock)",
+  "backend": "abstract-cfrag-usability-model",
+  "env": {
+    "python": "3.13.5"
+  },
+  "seeds": 30,
+  "policies": [
+    "unfenced",
+    "production_only",
+    "admission_only",
+    "greedy_full",
+    "conservative"
+  ],
+  "policy_config": {
+    "unfenced": {
+      "production_fencing": false,
+      "admission_enforcement": false
+    },
+    "production_only": {
+      "production_fencing": true,
+      "admission_enforcement": false
+    },
+    "admission_only": {
+      "production_fencing": false,
+      "admission_enforcement": true
+    },
+    "greedy_full": {
+      "production_fencing": true,
+      "admission_enforcement": true
+    },
+    "conservative": {
+      "production_fencing": true,
+      "admission_enforcement": true
+    }
+  },
+  "note": "Five policies; oracle separately. EDF scheduler processes staggered arrivals and all timed events through the inclusive horizon. Costs are declared model units.",
+  "cells": {
+    "light_B0": {
+      "budget_disclosed": 0.0,
+      "config": {
+        "n_streams": 4,
+        "horizon": 24,
+        "report_delay_max": 2,
+        "offline_prob": 0.2
+      },
+      "policies": {
+        "unfenced": {
+          "actual_disclosed": {
+            "mean": 0.9,
+            "stdev": 0.597,
+            "max": 2.0
+          },
+          "violation": {
+            "mean": 0.767,
+            "stdev": 0.423,
+            "max": 1
+          },
+          "served": {
+            "mean": 0.8,
+            "stdev": 0.6,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3.2,
+            "stdev": 0.6,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 36.5,
+            "stdev": 4.225,
+            "max": 44
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 18.167,
+            "stdev": 4.865,
+            "max": 30
+          },
+          "retries_or_refusals": {
+            "mean": 17.367,
+            "stdev": 5.257,
+            "max": 30
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.433,
+            "stdev": 0.496,
+            "max": 1.0
+          }
+        },
+        "production_only": {
+          "actual_disclosed": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 0.833,
+            "stdev": 0.637,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3.167,
+            "stdev": 0.637,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0.8,
+            "stdev": 0.702,
+            "max": 2
+          },
+          "fence_drops": {
+            "mean": 0.167,
+            "stdev": 0.373,
+            "max": 1
+          },
+          "total_cost": {
+            "mean": 40.033,
+            "stdev": 3.027,
+            "max": 47
+          },
+          "productions_completed": {
+            "mean": 7.833,
+            "stdev": 0.373,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 16.4,
+            "stdev": 5.339,
+            "max": 30
+          },
+          "retries_or_refusals": {
+            "mean": 15.567,
+            "stdev": 5.8,
+            "max": 30
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          }
+        },
+        "admission_only": {
+          "actual_disclosed": {
+            "mean": 0.9,
+            "stdev": 0.597,
+            "max": 2.0
+          },
+          "violation": {
+            "mean": 0.767,
+            "stdev": 0.423,
+            "max": 1
+          },
+          "served": {
+            "mean": 0.767,
+            "stdev": 0.616,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3.233,
+            "stdev": 0.616,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 36.7,
+            "stdev": 4.345,
+            "max": 44
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 18.633,
+            "stdev": 4.99,
+            "max": 30
+          },
+          "retries_or_refusals": {
+            "mean": 17.867,
+            "stdev": 5.384,
+            "max": 30
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.533,
+            "stdev": 0.499,
+            "max": 1.0
+          }
+        },
+        "greedy_full": {
+          "actual_disclosed": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 0.833,
+            "stdev": 0.637,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3.167,
+            "stdev": 0.637,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0.8,
+            "stdev": 0.702,
+            "max": 2
+          },
+          "fence_drops": {
+            "mean": 0.167,
+            "stdev": 0.373,
+            "max": 1
+          },
+          "total_cost": {
+            "mean": 40.033,
+            "stdev": 3.027,
+            "max": 47
+          },
+          "productions_completed": {
+            "mean": 7.833,
+            "stdev": 0.373,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 16.4,
+            "stdev": 5.339,
+            "max": 30
+          },
+          "retries_or_refusals": {
+            "mean": 15.567,
+            "stdev": 5.8,
+            "max": 30
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          }
+        },
+        "conservative": {
+          "actual_disclosed": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "rejected": {
+            "mean": 4,
+            "stdev": 0.0,
+            "max": 4
+          },
+          "expired": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 40,
+            "stdev": 0.0,
+            "max": 40
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "retries_or_refusals": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          }
+        }
+      }
+    },
+    "heavy_B0": {
+      "budget_disclosed": 0.0,
+      "config": {
+        "n_streams": 4,
+        "horizon": 30,
+        "report_delay_max": 4,
+        "offline_prob": 0.3
+      },
+      "policies": {
+        "unfenced": {
+          "actual_disclosed": {
+            "mean": 0.933,
+            "stdev": 0.727,
+            "max": 2.0
+          },
+          "violation": {
+            "mean": 0.7,
+            "stdev": 0.458,
+            "max": 1
+          },
+          "served": {
+            "mean": 0.5,
+            "stdev": 0.619,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3.5,
+            "stdev": 0.619,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 38.967,
+            "stdev": 4.27,
+            "max": 44
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 21.8,
+            "stdev": 6.063,
+            "max": 35
+          },
+          "retries_or_refusals": {
+            "mean": 21.3,
+            "stdev": 6.548,
+            "max": 35
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.533,
+            "stdev": 0.562,
+            "max": 2.0
+          }
+        },
+        "production_only": {
+          "actual_disclosed": {
+            "mean": 0.2,
+            "stdev": 0.4,
+            "max": 1.0
+          },
+          "violation": {
+            "mean": 0.2,
+            "stdev": 0.4,
+            "max": 1
+          },
+          "served": {
+            "mean": 0.5,
+            "stdev": 0.619,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3.5,
+            "stdev": 0.619,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0.6,
+            "stdev": 0.712,
+            "max": 2
+          },
+          "fence_drops": {
+            "mean": 0.2,
+            "stdev": 0.476,
+            "max": 2
+          },
+          "total_cost": {
+            "mean": 42.067,
+            "stdev": 3.172,
+            "max": 49
+          },
+          "productions_completed": {
+            "mean": 7.8,
+            "stdev": 0.476,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 21.167,
+            "stdev": 6.393,
+            "max": 35
+          },
+          "retries_or_refusals": {
+            "mean": 20.667,
+            "stdev": 6.896,
+            "max": 35
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.033,
+            "stdev": 0.18,
+            "max": 1.0
+          }
+        },
+        "admission_only": {
+          "actual_disclosed": {
+            "mean": 0.867,
+            "stdev": 0.763,
+            "max": 2.0
+          },
+          "violation": {
+            "mean": 0.633,
+            "stdev": 0.482,
+            "max": 1
+          },
+          "served": {
+            "mean": 0.467,
+            "stdev": 0.618,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3.533,
+            "stdev": 0.618,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 39.367,
+            "stdev": 4.416,
+            "max": 44
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 21.7,
+            "stdev": 5.745,
+            "max": 35
+          },
+          "retries_or_refusals": {
+            "mean": 21.233,
+            "stdev": 6.163,
+            "max": 35
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.567,
+            "stdev": 0.559,
+            "max": 2.0
+          }
+        },
+        "greedy_full": {
+          "actual_disclosed": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 0.567,
+            "stdev": 0.616,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3.433,
+            "stdev": 0.616,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0.7,
+            "stdev": 0.737,
+            "max": 2
+          },
+          "fence_drops": {
+            "mean": 0.233,
+            "stdev": 0.496,
+            "max": 2
+          },
+          "total_cost": {
+            "mean": 42.233,
+            "stdev": 3.547,
+            "max": 49
+          },
+          "productions_completed": {
+            "mean": 7.767,
+            "stdev": 0.496,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 20.1,
+            "stdev": 6.209,
+            "max": 35
+          },
+          "retries_or_refusals": {
+            "mean": 19.533,
+            "stdev": 6.687,
+            "max": 35
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          }
+        },
+        "conservative": {
+          "actual_disclosed": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "rejected": {
+            "mean": 4,
+            "stdev": 0.0,
+            "max": 4
+          },
+          "expired": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 40,
+            "stdev": 0.0,
+            "max": 40
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "retries_or_refusals": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          }
+        }
+      }
+    },
+    "intermittent_B0": {
+      "budget_disclosed": 0.0,
+      "config": {
+        "n_streams": 4,
+        "horizon": 28,
+        "report_delay_max": 3,
+        "offline_prob": 0.55
+      },
+      "policies": {
+        "unfenced": {
+          "actual_disclosed": {
+            "mean": 0.8,
+            "stdev": 0.653,
+            "max": 2.0
+          },
+          "violation": {
+            "mean": 0.667,
+            "stdev": 0.471,
+            "max": 1
+          },
+          "served": {
+            "mean": 0.5,
+            "stdev": 0.5,
+            "max": 1
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3.5,
+            "stdev": 0.5,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 38.767,
+            "stdev": 3.49,
+            "max": 44
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 24.4,
+            "stdev": 6.651,
+            "max": 38
+          },
+          "retries_or_refusals": {
+            "mean": 23.9,
+            "stdev": 6.992,
+            "max": 38
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.5,
+            "stdev": 0.563,
+            "max": 2.0
+          }
+        },
+        "production_only": {
+          "actual_disclosed": {
+            "mean": 0.033,
+            "stdev": 0.18,
+            "max": 1.0
+          },
+          "violation": {
+            "mean": 0.033,
+            "stdev": 0.18,
+            "max": 1
+          },
+          "served": {
+            "mean": 0.567,
+            "stdev": 0.559,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3.433,
+            "stdev": 0.559,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0.533,
+            "stdev": 0.67,
+            "max": 2
+          },
+          "fence_drops": {
+            "mean": 0.3,
+            "stdev": 0.458,
+            "max": 1
+          },
+          "total_cost": {
+            "mean": 41.667,
+            "stdev": 3.399,
+            "max": 50
+          },
+          "productions_completed": {
+            "mean": 7.7,
+            "stdev": 0.458,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 23.167,
+            "stdev": 7.207,
+            "max": 38
+          },
+          "retries_or_refusals": {
+            "mean": 22.6,
+            "stdev": 7.596,
+            "max": 38
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.033,
+            "stdev": 0.18,
+            "max": 1.0
+          }
+        },
+        "admission_only": {
+          "actual_disclosed": {
+            "mean": 0.733,
+            "stdev": 0.573,
+            "max": 2.0
+          },
+          "violation": {
+            "mean": 0.667,
+            "stdev": 0.471,
+            "max": 1
+          },
+          "served": {
+            "mean": 0.467,
+            "stdev": 0.499,
+            "max": 1
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3.533,
+            "stdev": 0.499,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 38.933,
+            "stdev": 3.678,
+            "max": 44
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 24.7,
+            "stdev": 6.553,
+            "max": 38
+          },
+          "retries_or_refusals": {
+            "mean": 24.233,
+            "stdev": 6.878,
+            "max": 38
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.5,
+            "stdev": 0.563,
+            "max": 2.0
+          }
+        },
+        "greedy_full": {
+          "actual_disclosed": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 0.567,
+            "stdev": 0.559,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3.433,
+            "stdev": 0.559,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0.533,
+            "stdev": 0.67,
+            "max": 2
+          },
+          "fence_drops": {
+            "mean": 0.3,
+            "stdev": 0.458,
+            "max": 1
+          },
+          "total_cost": {
+            "mean": 41.633,
+            "stdev": 3.43,
+            "max": 50
+          },
+          "productions_completed": {
+            "mean": 7.7,
+            "stdev": 0.458,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 23.2,
+            "stdev": 7.218,
+            "max": 38
+          },
+          "retries_or_refusals": {
+            "mean": 22.633,
+            "stdev": 7.605,
+            "max": 38
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          }
+        },
+        "conservative": {
+          "actual_disclosed": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "rejected": {
+            "mean": 4,
+            "stdev": 0.0,
+            "max": 4
+          },
+          "expired": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 40,
+            "stdev": 0.0,
+            "max": 40
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "retries_or_refusals": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          }
+        }
+      }
+    },
+    "light_B1": {
+      "budget_disclosed": 1.0,
+      "config": {
+        "n_streams": 4,
+        "horizon": 24,
+        "report_delay_max": 2,
+        "offline_prob": 0.2
+      },
+      "policies": {
+        "unfenced": {
+          "actual_disclosed": {
+            "mean": 1.767,
+            "stdev": 0.616,
+            "max": 3.0
+          },
+          "violation": {
+            "mean": 0.667,
+            "stdev": 0.471,
+            "max": 1
+          },
+          "served": {
+            "mean": 1.233,
+            "stdev": 0.667,
+            "max": 3
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 2.767,
+            "stdev": 0.667,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 34.5,
+            "stdev": 5.195,
+            "max": 45
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 14.533,
+            "stdev": 4.911,
+            "max": 26
+          },
+          "retries_or_refusals": {
+            "mean": 13.3,
+            "stdev": 5.442,
+            "max": 26
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.5,
+            "stdev": 0.5,
+            "max": 1.0
+          }
+        },
+        "production_only": {
+          "actual_disclosed": {
+            "mean": 0.9,
+            "stdev": 0.396,
+            "max": 2.0
+          },
+          "violation": {
+            "mean": 0.033,
+            "stdev": 0.18,
+            "max": 1
+          },
+          "served": {
+            "mean": 1.4,
+            "stdev": 0.712,
+            "max": 3
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 2.6,
+            "stdev": 0.712,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0.867,
+            "stdev": 0.67,
+            "max": 2
+          },
+          "fence_drops": {
+            "mean": 0.167,
+            "stdev": 0.373,
+            "max": 1
+          },
+          "total_cost": {
+            "mean": 37,
+            "stdev": 4.803,
+            "max": 48
+          },
+          "productions_completed": {
+            "mean": 7.833,
+            "stdev": 0.373,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 13.167,
+            "stdev": 5.646,
+            "max": 26
+          },
+          "retries_or_refusals": {
+            "mean": 11.767,
+            "stdev": 6.243,
+            "max": 26
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.033,
+            "stdev": 0.18,
+            "max": 1.0
+          }
+        },
+        "admission_only": {
+          "actual_disclosed": {
+            "mean": 1.7,
+            "stdev": 0.64,
+            "max": 3.0
+          },
+          "violation": {
+            "mean": 0.6,
+            "stdev": 0.49,
+            "max": 1
+          },
+          "served": {
+            "mean": 1.233,
+            "stdev": 0.667,
+            "max": 3
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 2.767,
+            "stdev": 0.667,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 34.433,
+            "stdev": 5.168,
+            "max": 45
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 14.467,
+            "stdev": 4.911,
+            "max": 26
+          },
+          "retries_or_refusals": {
+            "mean": 13.233,
+            "stdev": 5.426,
+            "max": 26
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.5,
+            "stdev": 0.5,
+            "max": 1.0
+          }
+        },
+        "greedy_full": {
+          "actual_disclosed": {
+            "mean": 0.867,
+            "stdev": 0.34,
+            "max": 1.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 1.4,
+            "stdev": 0.712,
+            "max": 3
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 2.6,
+            "stdev": 0.712,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0.867,
+            "stdev": 0.67,
+            "max": 2
+          },
+          "fence_drops": {
+            "mean": 0.167,
+            "stdev": 0.373,
+            "max": 1
+          },
+          "total_cost": {
+            "mean": 37,
+            "stdev": 4.803,
+            "max": 48
+          },
+          "productions_completed": {
+            "mean": 7.833,
+            "stdev": 0.373,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 13,
+            "stdev": 5.633,
+            "max": 26
+          },
+          "retries_or_refusals": {
+            "mean": 11.6,
+            "stdev": 6.221,
+            "max": 26
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          }
+        },
+        "conservative": {
+          "actual_disclosed": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "rejected": {
+            "mean": 4,
+            "stdev": 0.0,
+            "max": 4
+          },
+          "expired": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 40,
+            "stdev": 0.0,
+            "max": 40
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "retries_or_refusals": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          }
+        }
+      }
+    },
+    "heavy_B1": {
+      "budget_disclosed": 1.0,
+      "config": {
+        "n_streams": 4,
+        "horizon": 30,
+        "report_delay_max": 4,
+        "offline_prob": 0.3
+      },
+      "policies": {
+        "unfenced": {
+          "actual_disclosed": {
+            "mean": 1.833,
+            "stdev": 0.637,
+            "max": 3.0
+          },
+          "violation": {
+            "mean": 0.7,
+            "stdev": 0.458,
+            "max": 1
+          },
+          "served": {
+            "mean": 1.167,
+            "stdev": 0.582,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 2.833,
+            "stdev": 0.582,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 35.2,
+            "stdev": 4.497,
+            "max": 45
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 16.367,
+            "stdev": 6.359,
+            "max": 33
+          },
+          "retries_or_refusals": {
+            "mean": 15.2,
+            "stdev": 6.862,
+            "max": 33
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.7,
+            "stdev": 0.526,
+            "max": 2.0
+          }
+        },
+        "production_only": {
+          "actual_disclosed": {
+            "mean": 0.833,
+            "stdev": 0.373,
+            "max": 1.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 1.2,
+            "stdev": 0.6,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 2.8,
+            "stdev": 0.6,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0.8,
+            "stdev": 0.702,
+            "max": 2
+          },
+          "fence_drops": {
+            "mean": 0.233,
+            "stdev": 0.496,
+            "max": 2
+          },
+          "total_cost": {
+            "mean": 38.6,
+            "stdev": 5.135,
+            "max": 48
+          },
+          "productions_completed": {
+            "mean": 7.767,
+            "stdev": 0.496,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 16.033,
+            "stdev": 6.29,
+            "max": 33
+          },
+          "retries_or_refusals": {
+            "mean": 14.833,
+            "stdev": 6.807,
+            "max": 33
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.033,
+            "stdev": 0.18,
+            "max": 1.0
+          }
+        },
+        "admission_only": {
+          "actual_disclosed": {
+            "mean": 1.733,
+            "stdev": 0.629,
+            "max": 3.0
+          },
+          "violation": {
+            "mean": 0.633,
+            "stdev": 0.482,
+            "max": 1
+          },
+          "served": {
+            "mean": 1.167,
+            "stdev": 0.582,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 2.833,
+            "stdev": 0.582,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 35.1,
+            "stdev": 4.585,
+            "max": 45
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 16.4,
+            "stdev": 6.064,
+            "max": 33
+          },
+          "retries_or_refusals": {
+            "mean": 15.233,
+            "stdev": 6.556,
+            "max": 33
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.7,
+            "stdev": 0.526,
+            "max": 2.0
+          }
+        },
+        "greedy_full": {
+          "actual_disclosed": {
+            "mean": 0.833,
+            "stdev": 0.373,
+            "max": 1.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 1.2,
+            "stdev": 0.6,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 2.8,
+            "stdev": 0.6,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0.8,
+            "stdev": 0.702,
+            "max": 2
+          },
+          "fence_drops": {
+            "mean": 0.233,
+            "stdev": 0.496,
+            "max": 2
+          },
+          "total_cost": {
+            "mean": 38.6,
+            "stdev": 5.135,
+            "max": 48
+          },
+          "productions_completed": {
+            "mean": 7.767,
+            "stdev": 0.496,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 16.033,
+            "stdev": 6.29,
+            "max": 33
+          },
+          "retries_or_refusals": {
+            "mean": 14.833,
+            "stdev": 6.807,
+            "max": 33
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.033,
+            "stdev": 0.18,
+            "max": 1.0
+          }
+        },
+        "conservative": {
+          "actual_disclosed": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "rejected": {
+            "mean": 4,
+            "stdev": 0.0,
+            "max": 4
+          },
+          "expired": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 40,
+            "stdev": 0.0,
+            "max": 40
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "retries_or_refusals": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          }
+        }
+      }
+    },
+    "intermittent_B1": {
+      "budget_disclosed": 1.0,
+      "config": {
+        "n_streams": 4,
+        "horizon": 28,
+        "report_delay_max": 3,
+        "offline_prob": 0.55
+      },
+      "policies": {
+        "unfenced": {
+          "actual_disclosed": {
+            "mean": 1.7,
+            "stdev": 0.64,
+            "max": 3.0
+          },
+          "violation": {
+            "mean": 0.667,
+            "stdev": 0.471,
+            "max": 1
+          },
+          "served": {
+            "mean": 1,
+            "stdev": 0.577,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3,
+            "stdev": 0.577,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 36.033,
+            "stdev": 4.622,
+            "max": 46
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 20.267,
+            "stdev": 6.424,
+            "max": 37
+          },
+          "retries_or_refusals": {
+            "mean": 19.267,
+            "stdev": 6.855,
+            "max": 37
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.567,
+            "stdev": 0.559,
+            "max": 2.0
+          }
+        },
+        "production_only": {
+          "actual_disclosed": {
+            "mean": 0.833,
+            "stdev": 0.373,
+            "max": 1.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 1.033,
+            "stdev": 0.605,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 2.967,
+            "stdev": 0.605,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0.567,
+            "stdev": 0.667,
+            "max": 2
+          },
+          "fence_drops": {
+            "mean": 0.333,
+            "stdev": 0.471,
+            "max": 1
+          },
+          "total_cost": {
+            "mean": 39.3,
+            "stdev": 5.442,
+            "max": 51
+          },
+          "productions_completed": {
+            "mean": 7.667,
+            "stdev": 0.471,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 19.733,
+            "stdev": 6.653,
+            "max": 37
+          },
+          "retries_or_refusals": {
+            "mean": 18.7,
+            "stdev": 7.091,
+            "max": 37
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.033,
+            "stdev": 0.18,
+            "max": 1.0
+          }
+        },
+        "admission_only": {
+          "actual_disclosed": {
+            "mean": 1.7,
+            "stdev": 0.64,
+            "max": 3.0
+          },
+          "violation": {
+            "mean": 0.667,
+            "stdev": 0.471,
+            "max": 1
+          },
+          "served": {
+            "mean": 0.967,
+            "stdev": 0.547,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 3.033,
+            "stdev": 0.547,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 36.333,
+            "stdev": 4.445,
+            "max": 46
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 20.467,
+            "stdev": 6.254,
+            "max": 37
+          },
+          "retries_or_refusals": {
+            "mean": 19.5,
+            "stdev": 6.652,
+            "max": 37
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.567,
+            "stdev": 0.559,
+            "max": 2.0
+          }
+        },
+        "greedy_full": {
+          "actual_disclosed": {
+            "mean": 0.833,
+            "stdev": 0.373,
+            "max": 1.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 1.033,
+            "stdev": 0.605,
+            "max": 2
+          },
+          "rejected": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "expired": {
+            "mean": 2.967,
+            "stdev": 0.605,
+            "max": 4
+          },
+          "fence_rotations": {
+            "mean": 0.567,
+            "stdev": 0.667,
+            "max": 2
+          },
+          "fence_drops": {
+            "mean": 0.333,
+            "stdev": 0.471,
+            "max": 1
+          },
+          "total_cost": {
+            "mean": 39.3,
+            "stdev": 5.442,
+            "max": 51
+          },
+          "productions_completed": {
+            "mean": 7.667,
+            "stdev": 0.471,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 19.733,
+            "stdev": 6.653,
+            "max": 37
+          },
+          "retries_or_refusals": {
+            "mean": 18.7,
+            "stdev": 7.091,
+            "max": 37
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.033,
+            "stdev": 0.18,
+            "max": 1.0
+          }
+        },
+        "conservative": {
+          "actual_disclosed": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          },
+          "violation": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "served": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "rejected": {
+            "mean": 4,
+            "stdev": 0.0,
+            "max": 4
+          },
+          "expired": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_rotations": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "fence_drops": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "total_cost": {
+            "mean": 40,
+            "stdev": 0.0,
+            "max": 40
+          },
+          "productions_completed": {
+            "mean": 8,
+            "stdev": 0.0,
+            "max": 8
+          },
+          "attempts": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "retries_or_refusals": {
+            "mean": 0,
+            "stdev": 0.0,
+            "max": 0
+          },
+          "public_lag_peak_sampled": {
+            "mean": 0.0,
+            "stdev": 0.0,
+            "max": 0.0
+          }
+        }
+      }
+    }
+  }
+}

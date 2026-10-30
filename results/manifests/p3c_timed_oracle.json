@@ -1,0 +1,70 @@
+{
+  "batch": "P3C",
+  "run_kind": "model-simulation (timed; declared cost units; NOT a performance measurement)",
+  "backend": "abstract-cfrag-usability-model",
+  "env": {
+    "python": "3.13.5"
+  },
+  "cost_model": {
+    "fragment": 1.0,
+    "rollover": 3.0,
+    "miss": 10.0
+  },
+  "notes": [
+    "Timed oracle = exhaustive deepcopy search over the REAL ServiceSimulator.",
+    "Independent reference does NOT import ServiceSimulator or the oracle generator.",
+    "Gap-to-optimum INSIDE the feasible regime: greedy = optimum, blind-rollover > optimum."
+  ],
+  "instances": {
+    "generous_servable": {
+      "oracle_cost": 4.0,
+      "oracle_served": 1,
+      "oracle_actions": [
+        "InstallGrant",
+        "Transform"
+      ],
+      "oracle_replays_feasibly": true,
+      "oracle_replay_cost": 4.0,
+      "independent_reference_cost": 4.0,
+      "independent_reference_servable": 1,
+      "independent_reference_note": "servable directly within budget",
+      "greedy_cost": 4.0,
+      "greedy_gap": 0.0,
+      "blind_rollover_cost": 7.0,
+      "blind_rollover_gap": 3.0
+    },
+    "tight_deadline_unservable": {
+      "oracle_cost": 10.0,
+      "oracle_served": 0,
+      "oracle_actions": [
+        "Defer"
+      ],
+      "oracle_replays_feasibly": true,
+      "oracle_replay_cost": 10.0,
+      "independent_reference_cost": 10.0,
+      "independent_reference_servable": 0,
+      "independent_reference_note": "unservable: minimal serve ends at 6 >= deadline 6",
+      "greedy_cost": 14.0,
+      "greedy_gap": 4.0,
+      "blind_rollover_cost": 16.0,
+      "blind_rollover_gap": 6.0
+    },
+    "owner_offline_during_install": {
+      "oracle_cost": 10.0,
+      "oracle_served": 0,
+      "oracle_actions": [
+        "InstallGrant",
+        "Defer"
+      ],
+      "oracle_replays_feasibly": true,
+      "oracle_replay_cost": 10.0,
+      "independent_reference_cost": 10.0,
+      "independent_reference_servable": 0,
+      "independent_reference_note": "unservable: owner offline during the install window",
+      "greedy_cost": 10.0,
+      "greedy_gap": 0.0,
+      "blind_rollover_cost": 10.0,
+      "blind_rollover_gap": 0.0
+    }
+  }
+}

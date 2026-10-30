@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "suite": "scope_exposure",
+    "description": "Umbral threshold-PRE coalition exposure and per-scope bounding (diagnostic)",
+    "python": "3.12.3",
+    "platform": "Linux-6.18.44-fc-v153-x86_64-with-glibc2.39",
+    "utc": "2026-10-24T15:21:07+00:00",
+    "packages": {
+      "umbral": "0.3.0",
+      "cryptography": "3.4.8"
+    }
+  },
+  "results": [
+    {
+      "id": "EX-1",
+      "category": "OBSERVATION",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "all 10 of C(5,3) subsets recover scope A's delegating secret",
+      "not_established": "nothing about scopes not sampled; not a statement about other delegatees",
+      "detail": {
+        "subsets": 10,
+        "threshold": 3,
+        "shares": 5
+      }
+    },
+    {
+      "id": "EX-2",
+      "category": "OBSERVATION",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "recovered scope-A key decrypts a fresh same-scope ciphertext with no proxy step",
+      "not_established": "says nothing about any other scope's ciphertexts",
+      "detail": {
+        "transformation_used": false
+      }
+    },
+    {
+      "id": "EX-3",
+      "category": "OBSERVATION",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "recovered scope-A key does NOT open an independently keyed scope-B ciphertext",
+      "not_established": "FUNCTIONAL check on independent keys only; NOT a cross-scope confidentiality proof (a proof must bound the adversary's whole view; see LIM-1 and the doc)",
+      "detail": {
+        "scopes_independently_sampled": true
+      }
+    },
+    {
+      "id": "EX-4",
+      "category": "OBSERVATION",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "share index x_i depends on dh_point = precursor*receiving_sk; a proxy lacks receiving_sk",
+      "not_established": "the hardness itself: reconstruction-without-delegatee reduces to CDH and is ASSUMED, not shown",
+      "detail": {
+        "kind": "assumption",
+        "reduces_to": "ECCDH on secp256k1"
+      }
+    },
+    {
+      "id": "LIM-1",
+      "category": "LIMITATION-DEMO",
+      "expected": true,
+      "observed": true,
+      "match": true,
+      "establishes": "a key-inequality check (A != B) can hold while B is derivable from A (sk_B=2*sk_A)",
+      "not_established": "NOT an attack on independent sampling; it shows inequality != independence/security",
+      "detail": {
+        "construction": "sk_B = 2*sk_A mod n",
+        "inequality_holds": true,
+        "b_derivable_from_a": true
+      }
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "unexpected": []
+  }
+}

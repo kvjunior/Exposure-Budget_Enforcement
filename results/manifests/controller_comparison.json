@@ -1,0 +1,1803 @@
+{
+  "run_kind": "model-simulation (declared cost units; NOT a deployed measurement)",
+  "env": {
+    "python": "3.12.3"
+  },
+  "notes": [
+    "EARP retired; no controller proposed.",
+    "risk_rotation_heuristic is OUR heuristic; SACMAT conclusions withdrawn.",
+    "ALL methods share ONE plan contract (F04): up to 2 actions/request, replayed through replay_plan with usable-completion and single-charge miss accounting.",
+    "rolling_horizon forecast is perfect-information (diagnostic), labeled.",
+    "independent reference does NOT share enumerate_actions (F02/F06)."
+  ],
+  "instances": {
+    "whole_key_2req_budget1": {
+      "n_requests": 2,
+      "budget": 1,
+      "oracle": {
+        "cost": 2.0,
+        "replay_feasible": true,
+        "replay_cost": 2.0,
+        "plans": [
+          [
+            "admit_grant"
+          ],
+          [
+            "admit_grant"
+          ]
+        ]
+      },
+      "independent_reference_optimum": 2.0,
+      "reference_replay": {
+        "feasible": true,
+        "cost": 2.0,
+        "service": "ok (served 2, unserved 0)",
+        "served": 2,
+        "plans": [
+          [
+            {
+              "kind": "admit_grant",
+              "grant": {
+                "grant_id": "G0",
+                "owner": "O",
+                "recipient": "R0",
+                "scope": {
+                  "stream": "g",
+                  "epoch": 0
+                },
+                "rng": {
+                  "stream": "g",
+                  "lo": 0,
+                  "hi": null
+                },
+                "threshold": 1,
+                "shares": 3,
+                "proxies": [
+                  "p0",
+                  "p1",
+                  "p2"
+                ],
+                "valid_from": 0,
+                "valid_to": null
+              },
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": [
+                0
+              ]
+            }
+          ],
+          [
+            {
+              "kind": "admit_grant",
+              "grant": {
+                "grant_id": "G1",
+                "owner": "O",
+                "recipient": "R1",
+                "scope": {
+                  "stream": "g",
+                  "epoch": 0
+                },
+                "rng": {
+                  "stream": "g",
+                  "lo": 0,
+                  "hi": null
+                },
+                "threshold": 1,
+                "shares": 3,
+                "proxies": [
+                  "p0",
+                  "p1",
+                  "p2"
+                ],
+                "valid_from": 0,
+                "valid_to": null
+              },
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": [
+                0
+              ]
+            }
+          ]
+        ]
+      },
+      "methods": {
+        "fixed_period": {
+          "plans": [
+            [
+              "admit_grant"
+            ],
+            [
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "fixed-period admit",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "fixed-period admit",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ]
+          ],
+          "cost": 2.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 0.0,
+          "matches_optimum": true
+        },
+        "immediate_rotation": {
+          "plans": [
+            [
+              "activate_scope",
+              "admit_grant"
+            ],
+            [
+              "activate_scope",
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "activate_scope",
+                "grant": null,
+                "scope": {
+                  "stream": "g",
+                  "epoch": 1
+                },
+                "reason": "",
+                "new_scope_key_id": "g.e1.k0",
+                "start_seq": 1,
+                "authorized_kfrag_indices": []
+              },
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "activate_scope",
+                "grant": null,
+                "scope": {
+                  "stream": "g",
+                  "epoch": 2
+                },
+                "reason": "",
+                "new_scope_key_id": "g.e2.k0",
+                "start_seq": 1,
+                "authorized_kfrag_indices": []
+              },
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ]
+          ],
+          "cost": 28.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 26.0,
+          "matches_optimum": false
+        },
+        "greedy_history": {
+          "plans": [
+            [
+              "admit_grant"
+            ],
+            [
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ]
+          ],
+          "cost": 2.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 0.0,
+          "matches_optimum": true
+        },
+        "rolling_horizon": {
+          "plans": [
+            [
+              "admit_grant"
+            ],
+            [
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ]
+          ],
+          "cost": 2.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 0.0,
+          "matches_optimum": true
+        },
+        "risk_rotation_heuristic": {
+          "plans": [
+            [
+              "admit_grant"
+            ],
+            [
+              "activate_scope",
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "risk-rotation heuristic admit",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "activate_scope",
+                "grant": null,
+                "scope": {
+                  "stream": "g",
+                  "epoch": 1
+                },
+                "reason": "reconstructibility-triggered rotation",
+                "new_scope_key_id": "g.e1.k0",
+                "start_seq": 1,
+                "authorized_kfrag_indices": []
+              },
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ]
+          ],
+          "cost": 15.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 13.0,
+          "matches_optimum": false
+        }
+      }
+    },
+    "threshold2_2req_budget1": {
+      "n_requests": 2,
+      "budget": 1,
+      "oracle": {
+        "cost": 4.0,
+        "replay_feasible": true,
+        "replay_cost": 4.0,
+        "plans": [
+          [
+            "admit_grant"
+          ],
+          [
+            "admit_grant"
+          ]
+        ]
+      },
+      "independent_reference_optimum": 4.0,
+      "reference_replay": {
+        "feasible": true,
+        "cost": 4.0,
+        "service": "ok (served 2, unserved 0)",
+        "served": 2,
+        "plans": [
+          [
+            {
+              "kind": "admit_grant",
+              "grant": {
+                "grant_id": "G0",
+                "owner": "O",
+                "recipient": "R0",
+                "scope": {
+                  "stream": "g",
+                  "epoch": 0
+                },
+                "rng": {
+                  "stream": "g",
+                  "lo": 0,
+                  "hi": null
+                },
+                "threshold": 2,
+                "shares": 3,
+                "proxies": [
+                  "p0",
+                  "p1",
+                  "p2"
+                ],
+                "valid_from": 0,
+                "valid_to": null
+              },
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": [
+                0,
+                1
+              ]
+            }
+          ],
+          [
+            {
+              "kind": "admit_grant",
+              "grant": {
+                "grant_id": "G1",
+                "owner": "O",
+                "recipient": "R1",
+                "scope": {
+                  "stream": "g",
+                  "epoch": 0
+                },
+                "rng": {
+                  "stream": "g",
+                  "lo": 0,
+                  "hi": null
+                },
+                "threshold": 2,
+                "shares": 3,
+                "proxies": [
+                  "p0",
+                  "p1",
+                  "p2"
+                ],
+                "valid_from": 0,
+                "valid_to": null
+              },
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": [
+                0,
+                1
+              ]
+            }
+          ]
+        ]
+      },
+      "methods": {
+        "fixed_period": {
+          "plans": [
+            [
+              "admit_grant"
+            ],
+            [
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 2,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "fixed-period admit",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 2,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "fixed-period admit",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          ],
+          "cost": 4.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 0.0,
+          "matches_optimum": true
+        },
+        "immediate_rotation": {
+          "plans": [
+            [
+              "activate_scope",
+              "admit_grant"
+            ],
+            [
+              "activate_scope",
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "activate_scope",
+                "grant": null,
+                "scope": {
+                  "stream": "g",
+                  "epoch": 1
+                },
+                "reason": "",
+                "new_scope_key_id": "g.e1.k0",
+                "start_seq": 1,
+                "authorized_kfrag_indices": []
+              },
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 2,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0, 1)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "activate_scope",
+                "grant": null,
+                "scope": {
+                  "stream": "g",
+                  "epoch": 2
+                },
+                "reason": "",
+                "new_scope_key_id": "g.e2.k0",
+                "start_seq": 1,
+                "authorized_kfrag_indices": []
+              },
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 2,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0, 1)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          ],
+          "cost": 30.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 26.0,
+          "matches_optimum": false
+        },
+        "greedy_history": {
+          "plans": [
+            [
+              "admit_grant"
+            ],
+            [
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 2,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0, 1)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 2,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0, 1)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          ],
+          "cost": 4.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 0.0,
+          "matches_optimum": true
+        },
+        "rolling_horizon": {
+          "plans": [
+            [
+              "admit_grant"
+            ],
+            [
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 2,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0, 1)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 2,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0, 1)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          ],
+          "cost": 4.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 0.0,
+          "matches_optimum": true
+        },
+        "risk_rotation_heuristic": {
+          "plans": [
+            [
+              "admit_grant"
+            ],
+            [
+              "activate_scope",
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 2,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "risk-rotation heuristic admit",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "activate_scope",
+                "grant": null,
+                "scope": {
+                  "stream": "g",
+                  "epoch": 1
+                },
+                "reason": "reconstructibility-triggered rotation",
+                "new_scope_key_id": "g.e1.k0",
+                "start_seq": 1,
+                "authorized_kfrag_indices": []
+              },
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 2,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0, 1)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          ],
+          "cost": 17.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 13.0,
+          "matches_optimum": false
+        }
+      }
+    },
+    "lenient_2req_budget2": {
+      "n_requests": 2,
+      "budget": 2,
+      "oracle": {
+        "cost": 2.0,
+        "replay_feasible": true,
+        "replay_cost": 2.0,
+        "plans": [
+          [
+            "admit_grant"
+          ],
+          [
+            "admit_grant"
+          ]
+        ]
+      },
+      "independent_reference_optimum": 2.0,
+      "reference_replay": {
+        "feasible": true,
+        "cost": 2.0,
+        "service": "ok (served 2, unserved 0)",
+        "served": 2,
+        "plans": [
+          [
+            {
+              "kind": "admit_grant",
+              "grant": {
+                "grant_id": "G0",
+                "owner": "O",
+                "recipient": "R0",
+                "scope": {
+                  "stream": "g",
+                  "epoch": 0
+                },
+                "rng": {
+                  "stream": "g",
+                  "lo": 0,
+                  "hi": null
+                },
+                "threshold": 1,
+                "shares": 3,
+                "proxies": [
+                  "p0",
+                  "p1",
+                  "p2"
+                ],
+                "valid_from": 0,
+                "valid_to": null
+              },
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": [
+                0
+              ]
+            }
+          ],
+          [
+            {
+              "kind": "admit_grant",
+              "grant": {
+                "grant_id": "G1",
+                "owner": "O",
+                "recipient": "R1",
+                "scope": {
+                  "stream": "g",
+                  "epoch": 0
+                },
+                "rng": {
+                  "stream": "g",
+                  "lo": 0,
+                  "hi": null
+                },
+                "threshold": 1,
+                "shares": 3,
+                "proxies": [
+                  "p0",
+                  "p1",
+                  "p2"
+                ],
+                "valid_from": 0,
+                "valid_to": null
+              },
+              "scope": null,
+              "reason": "",
+              "new_scope_key_id": null,
+              "start_seq": null,
+              "authorized_kfrag_indices": [
+                0
+              ]
+            }
+          ]
+        ]
+      },
+      "methods": {
+        "fixed_period": {
+          "plans": [
+            [
+              "admit_grant"
+            ],
+            [
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "fixed-period admit",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "fixed-period admit",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ]
+          ],
+          "cost": 2.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 0.0,
+          "matches_optimum": true
+        },
+        "immediate_rotation": {
+          "plans": [
+            [
+              "activate_scope",
+              "admit_grant"
+            ],
+            [
+              "activate_scope",
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "activate_scope",
+                "grant": null,
+                "scope": {
+                  "stream": "g",
+                  "epoch": 1
+                },
+                "reason": "",
+                "new_scope_key_id": "g.e1.k0",
+                "start_seq": 1,
+                "authorized_kfrag_indices": []
+              },
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "activate_scope",
+                "grant": null,
+                "scope": {
+                  "stream": "g",
+                  "epoch": 2
+                },
+                "reason": "",
+                "new_scope_key_id": "g.e2.k0",
+                "start_seq": 1,
+                "authorized_kfrag_indices": []
+              },
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ]
+          ],
+          "cost": 28.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 26.0,
+          "matches_optimum": false
+        },
+        "greedy_history": {
+          "plans": [
+            [
+              "admit_grant"
+            ],
+            [
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ]
+          ],
+          "cost": 2.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 0.0,
+          "matches_optimum": true
+        },
+        "rolling_horizon": {
+          "plans": [
+            [
+              "admit_grant"
+            ],
+            [
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ]
+          ],
+          "cost": 2.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 0.0,
+          "matches_optimum": true
+        },
+        "risk_rotation_heuristic": {
+          "plans": [
+            [
+              "admit_grant"
+            ],
+            [
+              "activate_scope",
+              "admit_grant"
+            ]
+          ],
+          "action_plans": [
+            [
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G0",
+                  "owner": "O",
+                  "recipient": "R0",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "risk-rotation heuristic admit",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "kind": "activate_scope",
+                "grant": null,
+                "scope": {
+                  "stream": "g",
+                  "epoch": 1
+                },
+                "reason": "reconstructibility-triggered rotation",
+                "new_scope_key_id": "g.e1.k0",
+                "start_seq": 1,
+                "authorized_kfrag_indices": []
+              },
+              {
+                "kind": "admit_grant",
+                "grant": {
+                  "grant_id": "G1",
+                  "owner": "O",
+                  "recipient": "R1",
+                  "scope": {
+                    "stream": "g",
+                    "epoch": 0
+                  },
+                  "rng": {
+                    "stream": "g",
+                    "lo": 0,
+                    "hi": null
+                  },
+                  "threshold": 1,
+                  "shares": 3,
+                  "proxies": [
+                    "p0",
+                    "p1",
+                    "p2"
+                  ],
+                  "valid_from": 0,
+                  "valid_to": null
+                },
+                "scope": null,
+                "reason": "enumerated admit indices=(0,)",
+                "new_scope_key_id": null,
+                "start_seq": null,
+                "authorized_kfrag_indices": [
+                  0
+                ]
+              }
+            ]
+          ],
+          "cost": 15.0,
+          "feasible": true,
+          "service": "ok (served 2, unserved 0)",
+          "service_counts": {
+            "served": 2,
+            "unserved": 0
+          },
+          "gap_to_optimum": 13.0,
+          "matches_optimum": false
+        }
+      }
+    }
+  }
+}

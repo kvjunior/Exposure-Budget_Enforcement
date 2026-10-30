@@ -1,0 +1,1474 @@
+{
+  "batch": "P3B",
+  "kind": "scripted model traces; no policy comparison or measured crypto",
+  "backend": "abstract-cfrag-usability-model",
+  "traces": {
+    "usable_existing_grant_owner_offline": {
+      "actions": [
+        {
+          "public_time_before": {
+            "ticks": 0
+          },
+          "public_sequence_before": {
+            "value": 4
+          },
+          "action_type": "InstallGrant",
+          "action": {
+            "demand_id": "D",
+            "grant": {
+              "grant_id": "G",
+              "owner": "O",
+              "recipient": "R",
+              "scope": {
+                "stream": "g",
+                "epoch": 0
+              },
+              "rng": {
+                "stream": "g",
+                "lo": 0,
+                "hi": 1
+              },
+              "threshold": 2,
+              "proxies": [
+                "p0",
+                "p1",
+                "p2"
+              ],
+              "validity": {
+                "start": {
+                  "ticks": 0
+                },
+                "end": {
+                  "ticks": 30
+                }
+              }
+            },
+            "raw_indices": [
+              0,
+              1
+            ],
+            "metadata_ticks": 1,
+            "step_ticks": 1
+          },
+          "result": {
+            "status": "installed",
+            "delivered": [
+              {
+                "grant_id": "G",
+                "index": 0,
+                "record": null
+              },
+              {
+                "grant_id": "G",
+                "index": 1,
+                "record": null
+              }
+            ],
+            "reason": ""
+          },
+          "public_time_after": {
+            "ticks": 3
+          },
+          "queue_after": {
+            "pending": 1,
+            "served": 0,
+            "rejected": 0,
+            "expired": 0,
+            "waiting_ticks": 3
+          }
+        },
+        {
+          "public_time_before": {
+            "ticks": 3
+          },
+          "public_sequence_before": {
+            "value": 4
+          },
+          "action_type": "Transform",
+          "action": {
+            "demand_id": "D",
+            "grant_id": "G",
+            "share_indices": [
+              0,
+              1
+            ],
+            "step_ticks": 1,
+            "open_ticks": 1
+          },
+          "result": {
+            "status": "served",
+            "delivered": [
+              {
+                "grant_id": "G",
+                "index": 0,
+                "record": {
+                  "stream": "g",
+                  "seq": 0
+                }
+              },
+              {
+                "grant_id": "G",
+                "index": 1,
+                "record": {
+                  "stream": "g",
+                  "seq": 0
+                }
+              }
+            ],
+            "reason": ""
+          },
+          "public_time_after": {
+            "ticks": 6
+          },
+          "queue_after": {
+            "pending": 0,
+            "served": 1,
+            "rejected": 0,
+            "expired": 0,
+            "waiting_ticks": 6
+          }
+        }
+      ],
+      "evaluator_report": {
+        "backend": "abstract-cfrag-usability-model",
+        "now": {
+          "ticks": 6
+        },
+        "queue": {
+          "pending": 0,
+          "served": 1,
+          "rejected": 0,
+          "expired": 0,
+          "waiting_ticks": 6
+        },
+        "exposure_interpretation": "declared-family potential exposure over actual production; not observed corruption/decryption",
+        "actual_exposure": [
+          {
+            "label": "('declared', ())",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          },
+          {
+            "label": "('declared', ('R',))",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [
+              {
+                "stream": "g",
+                "epoch": 0
+              }
+            ],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          }
+        ],
+        "observable_exposure": [
+          {
+            "label": "('declared', ())",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          },
+          {
+            "label": "('declared', ('R',))",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [
+              {
+                "stream": "g",
+                "epoch": 0
+              }
+            ],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          }
+        ],
+        "breaches": [],
+        "outcomes": [
+          [
+            {
+              "ticks": 3
+            },
+            "InstallGrant",
+            "installed",
+            ""
+          ],
+          [
+            {
+              "ticks": 6
+            },
+            "Transform",
+            "served",
+            ""
+          ]
+        ],
+        "truth_records": [
+          [
+            {
+              "record": {
+                "stream": "g",
+                "seq": 0
+              },
+              "scope": {
+                "stream": "g",
+                "epoch": 0
+              },
+              "weight": 1.0
+            },
+            {
+              "ticks": 0
+            }
+          ]
+        ],
+        "deliveries": [
+          {
+            "grant_id": "G",
+            "index": 0,
+            "record": null
+          },
+          {
+            "grant_id": "G",
+            "index": 1,
+            "record": null
+          },
+          {
+            "grant_id": "G",
+            "index": 0,
+            "record": {
+              "stream": "g",
+              "seq": 0
+            }
+          },
+          {
+            "grant_id": "G",
+            "index": 1,
+            "record": {
+              "stream": "g",
+              "seq": 0
+            }
+          }
+        ],
+        "horizon": "censored; pending demands remain pending"
+      }
+    },
+    "partial_install_interrupted": {
+      "actions": [
+        {
+          "public_time_before": {
+            "ticks": 0
+          },
+          "public_sequence_before": {
+            "value": 4
+          },
+          "action_type": "InstallGrant",
+          "action": {
+            "demand_id": "D",
+            "grant": {
+              "grant_id": "G",
+              "owner": "O",
+              "recipient": "R",
+              "scope": {
+                "stream": "g",
+                "epoch": 0
+              },
+              "rng": {
+                "stream": "g",
+                "lo": 0,
+                "hi": 1
+              },
+              "threshold": 2,
+              "proxies": [
+                "p0",
+                "p1",
+                "p2"
+              ],
+              "validity": {
+                "start": {
+                  "ticks": 0
+                },
+                "end": {
+                  "ticks": 30
+                }
+              }
+            },
+            "raw_indices": [
+              0,
+              1
+            ],
+            "metadata_ticks": 1,
+            "step_ticks": 1
+          },
+          "result": {
+            "status": "interrupted",
+            "delivered": [
+              {
+                "grant_id": "G",
+                "index": 0,
+                "record": null
+              }
+            ],
+            "reason": "raw-delivery authority/window ended"
+          },
+          "public_time_after": {
+            "ticks": 3
+          },
+          "queue_after": {
+            "pending": 1,
+            "served": 0,
+            "rejected": 0,
+            "expired": 0,
+            "waiting_ticks": 3
+          }
+        },
+        {
+          "public_time_before": {
+            "ticks": 3
+          },
+          "public_sequence_before": {
+            "value": 5
+          },
+          "action_type": "Defer",
+          "action": {
+            "demand_id": "D",
+            "until": {
+              "ticks": 5
+            }
+          },
+          "result": {
+            "status": "deferred",
+            "delivered": [],
+            "reason": ""
+          },
+          "public_time_after": {
+            "ticks": 5
+          },
+          "queue_after": {
+            "pending": 1,
+            "served": 0,
+            "rejected": 0,
+            "expired": 0,
+            "waiting_ticks": 5
+          }
+        }
+      ],
+      "evaluator_report": {
+        "backend": "abstract-cfrag-usability-model",
+        "now": {
+          "ticks": 5
+        },
+        "queue": {
+          "pending": 1,
+          "served": 0,
+          "rejected": 0,
+          "expired": 0,
+          "waiting_ticks": 5
+        },
+        "exposure_interpretation": "declared-family potential exposure over actual production; not observed corruption/decryption",
+        "actual_exposure": [
+          {
+            "label": "('declared', ())",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          },
+          {
+            "label": "('declared', ('R',))",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          }
+        ],
+        "observable_exposure": [
+          {
+            "label": "('declared', ())",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          },
+          {
+            "label": "('declared', ('R',))",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          }
+        ],
+        "breaches": [],
+        "outcomes": [
+          [
+            {
+              "ticks": 3
+            },
+            "InstallGrant",
+            "interrupted",
+            "raw-delivery authority/window ended"
+          ],
+          [
+            {
+              "ticks": 5
+            },
+            "Defer",
+            "deferred",
+            ""
+          ]
+        ],
+        "truth_records": [
+          [
+            {
+              "record": {
+                "stream": "g",
+                "seq": 0
+              },
+              "scope": {
+                "stream": "g",
+                "epoch": 0
+              },
+              "weight": 1.0
+            },
+            {
+              "ticks": 0
+            }
+          ]
+        ],
+        "deliveries": [
+          {
+            "grant_id": "G",
+            "index": 0,
+            "record": null
+          }
+        ],
+        "horizon": "censored; pending demands remain pending"
+      }
+    },
+    "completion_exact_deadline": {
+      "actions": [
+        {
+          "public_time_before": {
+            "ticks": 0
+          },
+          "public_sequence_before": {
+            "value": 4
+          },
+          "action_type": "InstallGrant",
+          "action": {
+            "demand_id": "D",
+            "grant": {
+              "grant_id": "G",
+              "owner": "O",
+              "recipient": "R",
+              "scope": {
+                "stream": "g",
+                "epoch": 0
+              },
+              "rng": {
+                "stream": "g",
+                "lo": 0,
+                "hi": 1
+              },
+              "threshold": 2,
+              "proxies": [
+                "p0",
+                "p1",
+                "p2"
+              ],
+              "validity": {
+                "start": {
+                  "ticks": 0
+                },
+                "end": {
+                  "ticks": 30
+                }
+              }
+            },
+            "raw_indices": [
+              0,
+              1
+            ],
+            "metadata_ticks": 1,
+            "step_ticks": 1
+          },
+          "result": {
+            "status": "installed",
+            "delivered": [
+              {
+                "grant_id": "G",
+                "index": 0,
+                "record": null
+              },
+              {
+                "grant_id": "G",
+                "index": 1,
+                "record": null
+              }
+            ],
+            "reason": ""
+          },
+          "public_time_after": {
+            "ticks": 3
+          },
+          "queue_after": {
+            "pending": 1,
+            "served": 0,
+            "rejected": 0,
+            "expired": 0,
+            "waiting_ticks": 3
+          }
+        },
+        {
+          "public_time_before": {
+            "ticks": 3
+          },
+          "public_sequence_before": {
+            "value": 4
+          },
+          "action_type": "Transform",
+          "action": {
+            "demand_id": "D",
+            "grant_id": "G",
+            "share_indices": [
+              0,
+              1
+            ],
+            "step_ticks": 1,
+            "open_ticks": 1
+          },
+          "result": {
+            "status": "interrupted",
+            "delivered": [
+              {
+                "grant_id": "G",
+                "index": 0,
+                "record": {
+                  "stream": "g",
+                  "seq": 0
+                }
+              },
+              {
+                "grant_id": "G",
+                "index": 1,
+                "record": {
+                  "stream": "g",
+                  "seq": 0
+                }
+              }
+            ],
+            "reason": "completion window ended; retained fragments remain"
+          },
+          "public_time_after": {
+            "ticks": 6
+          },
+          "queue_after": {
+            "pending": 0,
+            "served": 0,
+            "rejected": 0,
+            "expired": 1,
+            "waiting_ticks": 6
+          }
+        }
+      ],
+      "evaluator_report": {
+        "backend": "abstract-cfrag-usability-model",
+        "now": {
+          "ticks": 6
+        },
+        "queue": {
+          "pending": 0,
+          "served": 0,
+          "rejected": 0,
+          "expired": 1,
+          "waiting_ticks": 6
+        },
+        "exposure_interpretation": "declared-family potential exposure over actual production; not observed corruption/decryption",
+        "actual_exposure": [
+          {
+            "label": "('declared', ())",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          },
+          {
+            "label": "('declared', ('R',))",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [
+              {
+                "stream": "g",
+                "epoch": 0
+              }
+            ],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          }
+        ],
+        "observable_exposure": [
+          {
+            "label": "('declared', ())",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          },
+          {
+            "label": "('declared', ('R',))",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [
+              {
+                "stream": "g",
+                "epoch": 0
+              }
+            ],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          }
+        ],
+        "breaches": [],
+        "outcomes": [
+          [
+            {
+              "ticks": 3
+            },
+            "InstallGrant",
+            "installed",
+            ""
+          ],
+          [
+            {
+              "ticks": 6
+            },
+            "Transform",
+            "interrupted",
+            "completion window ended; retained fragments remain"
+          ]
+        ],
+        "truth_records": [
+          [
+            {
+              "record": {
+                "stream": "g",
+                "seq": 0
+              },
+              "scope": {
+                "stream": "g",
+                "epoch": 0
+              },
+              "weight": 1.0
+            },
+            {
+              "ticks": 0
+            }
+          ]
+        ],
+        "deliveries": [
+          {
+            "grant_id": "G",
+            "index": 0,
+            "record": null
+          },
+          {
+            "grant_id": "G",
+            "index": 1,
+            "record": null
+          },
+          {
+            "grant_id": "G",
+            "index": 0,
+            "record": {
+              "stream": "g",
+              "seq": 0
+            }
+          },
+          {
+            "grant_id": "G",
+            "index": 1,
+            "record": {
+              "stream": "g",
+              "seq": 0
+            }
+          }
+        ],
+        "horizon": "censored; pending demands remain pending"
+      }
+    },
+    "delayed_production_breach_then_mitigation": {
+      "actions": [
+        {
+          "public_time_before": {
+            "ticks": 0
+          },
+          "public_sequence_before": {
+            "value": 4
+          },
+          "action_type": "InstallGrant",
+          "action": {
+            "demand_id": "D",
+            "grant": {
+              "grant_id": "G",
+              "owner": "O",
+              "recipient": "R",
+              "scope": {
+                "stream": "g",
+                "epoch": 0
+              },
+              "rng": {
+                "stream": "g",
+                "lo": 0,
+                "hi": 1
+              },
+              "threshold": 2,
+              "proxies": [
+                "p0",
+                "p1",
+                "p2"
+              ],
+              "validity": {
+                "start": {
+                  "ticks": 0
+                },
+                "end": {
+                  "ticks": 30
+                }
+              }
+            },
+            "raw_indices": [
+              0,
+              1
+            ],
+            "metadata_ticks": 1,
+            "step_ticks": 1
+          },
+          "result": {
+            "status": "installed",
+            "delivered": [
+              {
+                "grant_id": "G",
+                "index": 0,
+                "record": null
+              },
+              {
+                "grant_id": "G",
+                "index": 1,
+                "record": null
+              }
+            ],
+            "reason": ""
+          },
+          "public_time_after": {
+            "ticks": 3
+          },
+          "queue_after": {
+            "pending": 1,
+            "served": 0,
+            "rejected": 0,
+            "expired": 0,
+            "waiting_ticks": 3
+          }
+        },
+        {
+          "public_time_before": {
+            "ticks": 3
+          },
+          "public_sequence_before": {
+            "value": 4
+          },
+          "action_type": "Defer",
+          "action": {
+            "demand_id": "D",
+            "until": {
+              "ticks": 8
+            }
+          },
+          "result": {
+            "status": "deferred",
+            "delivered": [],
+            "reason": ""
+          },
+          "public_time_after": {
+            "ticks": 8
+          },
+          "queue_after": {
+            "pending": 1,
+            "served": 0,
+            "rejected": 0,
+            "expired": 0,
+            "waiting_ticks": 8
+          }
+        },
+        {
+          "public_time_before": {
+            "ticks": 8
+          },
+          "public_sequence_before": {
+            "value": 5
+          },
+          "action_type": "ActivateScope",
+          "action": {
+            "activation": {
+              "owner": "O",
+              "scope": {
+                "stream": "g",
+                "epoch": 1
+              },
+              "key_id": "key1",
+              "start_seq": 2
+            },
+            "ticks": 1
+          },
+          "result": {
+            "status": "activated",
+            "delivered": [],
+            "reason": ""
+          },
+          "public_time_after": {
+            "ticks": 9
+          },
+          "queue_after": {
+            "pending": 1,
+            "served": 0,
+            "rejected": 0,
+            "expired": 0,
+            "waiting_ticks": 9
+          }
+        }
+      ],
+      "evaluator_report": {
+        "backend": "abstract-cfrag-usability-model",
+        "now": {
+          "ticks": 9
+        },
+        "queue": {
+          "pending": 1,
+          "served": 0,
+          "rejected": 0,
+          "expired": 0,
+          "waiting_ticks": 9
+        },
+        "exposure_interpretation": "declared-family potential exposure over actual production; not observed corruption/decryption",
+        "actual_exposure": [
+          {
+            "label": "('declared', ())",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          },
+          {
+            "label": "('declared', ('R',))",
+            "endpoint_records": [
+              {
+                "stream": "g",
+                "seq": 1
+              }
+            ],
+            "disclosed": [
+              [
+                {
+                  "stream": "g",
+                  "seq": 1
+                },
+                {
+                  "ticks": 4
+                }
+              ]
+            ],
+            "active_scopes": [],
+            "endpoint_weight": 1,
+            "disclosed_weight": 1
+          }
+        ],
+        "observable_exposure": [
+          {
+            "label": "('declared', ())",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          },
+          {
+            "label": "('declared', ('R',))",
+            "endpoint_records": [
+              {
+                "stream": "g",
+                "seq": 1
+              }
+            ],
+            "disclosed": [
+              [
+                {
+                  "stream": "g",
+                  "seq": 1
+                },
+                {
+                  "ticks": 8
+                }
+              ]
+            ],
+            "active_scopes": [],
+            "endpoint_weight": 1,
+            "disclosed_weight": 1
+          }
+        ],
+        "breaches": [
+          [
+            {
+              "ticks": 4
+            },
+            "external-production",
+            {
+              "label": "('declared', ('R',))",
+              "endpoint_records": [
+                {
+                  "stream": "g",
+                  "seq": 1
+                }
+              ],
+              "disclosed": [
+                [
+                  {
+                    "stream": "g",
+                    "seq": 1
+                  },
+                  {
+                    "ticks": 4
+                  }
+                ]
+              ],
+              "active_scopes": [
+                {
+                  "stream": "g",
+                  "epoch": 0
+                }
+              ],
+              "endpoint_weight": 1,
+              "disclosed_weight": 1
+            }
+          ],
+          [
+            {
+              "ticks": 4
+            },
+            "public-observation",
+            {
+              "label": "('declared', ('R',))",
+              "endpoint_records": [
+                {
+                  "stream": "g",
+                  "seq": 1
+                }
+              ],
+              "disclosed": [
+                [
+                  {
+                    "stream": "g",
+                    "seq": 1
+                  },
+                  {
+                    "ticks": 4
+                  }
+                ]
+              ],
+              "active_scopes": [
+                {
+                  "stream": "g",
+                  "epoch": 0
+                }
+              ],
+              "endpoint_weight": 1,
+              "disclosed_weight": 1
+            }
+          ],
+          [
+            {
+              "ticks": 8
+            },
+            "public-observation",
+            {
+              "label": "('declared', ('R',))",
+              "endpoint_records": [
+                {
+                  "stream": "g",
+                  "seq": 1
+                }
+              ],
+              "disclosed": [
+                [
+                  {
+                    "stream": "g",
+                    "seq": 1
+                  },
+                  {
+                    "ticks": 4
+                  }
+                ]
+              ],
+              "active_scopes": [
+                {
+                  "stream": "g",
+                  "epoch": 0
+                }
+              ],
+              "endpoint_weight": 1,
+              "disclosed_weight": 1
+            }
+          ],
+          [
+            {
+              "ticks": 9
+            },
+            "public-observation",
+            {
+              "label": "('declared', ('R',))",
+              "endpoint_records": [
+                {
+                  "stream": "g",
+                  "seq": 1
+                }
+              ],
+              "disclosed": [
+                [
+                  {
+                    "stream": "g",
+                    "seq": 1
+                  },
+                  {
+                    "ticks": 4
+                  }
+                ]
+              ],
+              "active_scopes": [
+                {
+                  "stream": "g",
+                  "epoch": 0
+                }
+              ],
+              "endpoint_weight": 1,
+              "disclosed_weight": 1
+            }
+          ],
+          [
+            {
+              "ticks": 9
+            },
+            "activate",
+            {
+              "label": "('declared', ('R',))",
+              "endpoint_records": [
+                {
+                  "stream": "g",
+                  "seq": 1
+                }
+              ],
+              "disclosed": [
+                [
+                  {
+                    "stream": "g",
+                    "seq": 1
+                  },
+                  {
+                    "ticks": 4
+                  }
+                ]
+              ],
+              "active_scopes": [],
+              "endpoint_weight": 1,
+              "disclosed_weight": 1
+            }
+          ]
+        ],
+        "outcomes": [
+          [
+            {
+              "ticks": 3
+            },
+            "InstallGrant",
+            "installed",
+            ""
+          ],
+          [
+            {
+              "ticks": 8
+            },
+            "Defer",
+            "deferred",
+            ""
+          ],
+          [
+            {
+              "ticks": 9
+            },
+            "ActivateScope",
+            "activated",
+            ""
+          ]
+        ],
+        "truth_records": [
+          [
+            {
+              "record": {
+                "stream": "g",
+                "seq": 0
+              },
+              "scope": {
+                "stream": "g",
+                "epoch": 0
+              },
+              "weight": 1.0
+            },
+            {
+              "ticks": 0
+            }
+          ],
+          [
+            {
+              "record": {
+                "stream": "g",
+                "seq": 1
+              },
+              "scope": {
+                "stream": "g",
+                "epoch": 0
+              },
+              "weight": 1.0
+            },
+            {
+              "ticks": 4
+            }
+          ]
+        ],
+        "deliveries": [
+          {
+            "grant_id": "G",
+            "index": 0,
+            "record": null
+          },
+          {
+            "grant_id": "G",
+            "index": 1,
+            "record": null
+          }
+        ],
+        "horizon": "censored; pending demands remain pending"
+      }
+    },
+    "rotation_before_production_keeps_old_target_usable": {
+      "actions": [
+        {
+          "public_time_before": {
+            "ticks": 0
+          },
+          "public_sequence_before": {
+            "value": 4
+          },
+          "action_type": "InstallGrant",
+          "action": {
+            "demand_id": "D",
+            "grant": {
+              "grant_id": "G",
+              "owner": "O",
+              "recipient": "R",
+              "scope": {
+                "stream": "g",
+                "epoch": 0
+              },
+              "rng": {
+                "stream": "g",
+                "lo": 0,
+                "hi": 1
+              },
+              "threshold": 2,
+              "proxies": [
+                "p0",
+                "p1",
+                "p2"
+              ],
+              "validity": {
+                "start": {
+                  "ticks": 0
+                },
+                "end": {
+                  "ticks": 30
+                }
+              }
+            },
+            "raw_indices": [
+              0,
+              1
+            ],
+            "metadata_ticks": 1,
+            "step_ticks": 1
+          },
+          "result": {
+            "status": "installed",
+            "delivered": [
+              {
+                "grant_id": "G",
+                "index": 0,
+                "record": null
+              },
+              {
+                "grant_id": "G",
+                "index": 1,
+                "record": null
+              }
+            ],
+            "reason": ""
+          },
+          "public_time_after": {
+            "ticks": 3
+          },
+          "queue_after": {
+            "pending": 1,
+            "served": 0,
+            "rejected": 0,
+            "expired": 0,
+            "waiting_ticks": 3
+          }
+        },
+        {
+          "public_time_before": {
+            "ticks": 3
+          },
+          "public_sequence_before": {
+            "value": 4
+          },
+          "action_type": "ActivateScope",
+          "action": {
+            "activation": {
+              "owner": "O",
+              "scope": {
+                "stream": "g",
+                "epoch": 1
+              },
+              "key_id": "key1",
+              "start_seq": 1
+            },
+            "ticks": 1
+          },
+          "result": {
+            "status": "activated",
+            "delivered": [],
+            "reason": ""
+          },
+          "public_time_after": {
+            "ticks": 4
+          },
+          "queue_after": {
+            "pending": 1,
+            "served": 0,
+            "rejected": 0,
+            "expired": 0,
+            "waiting_ticks": 4
+          }
+        },
+        {
+          "public_time_before": {
+            "ticks": 4
+          },
+          "public_sequence_before": {
+            "value": 4
+          },
+          "action_type": "Transform",
+          "action": {
+            "demand_id": "D",
+            "grant_id": "G",
+            "share_indices": [
+              0,
+              1
+            ],
+            "step_ticks": 1,
+            "open_ticks": 1
+          },
+          "result": {
+            "status": "served",
+            "delivered": [
+              {
+                "grant_id": "G",
+                "index": 0,
+                "record": {
+                  "stream": "g",
+                  "seq": 0
+                }
+              },
+              {
+                "grant_id": "G",
+                "index": 1,
+                "record": {
+                  "stream": "g",
+                  "seq": 0
+                }
+              }
+            ],
+            "reason": ""
+          },
+          "public_time_after": {
+            "ticks": 7
+          },
+          "queue_after": {
+            "pending": 0,
+            "served": 1,
+            "rejected": 0,
+            "expired": 0,
+            "waiting_ticks": 7
+          }
+        }
+      ],
+      "evaluator_report": {
+        "backend": "abstract-cfrag-usability-model",
+        "now": {
+          "ticks": 7
+        },
+        "queue": {
+          "pending": 0,
+          "served": 1,
+          "rejected": 0,
+          "expired": 0,
+          "waiting_ticks": 7
+        },
+        "exposure_interpretation": "declared-family potential exposure over actual production; not observed corruption/decryption",
+        "actual_exposure": [
+          {
+            "label": "('declared', ())",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          },
+          {
+            "label": "('declared', ('R',))",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          }
+        ],
+        "observable_exposure": [
+          {
+            "label": "('declared', ())",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          },
+          {
+            "label": "('declared', ('R',))",
+            "endpoint_records": [],
+            "disclosed": [],
+            "active_scopes": [],
+            "endpoint_weight": 0,
+            "disclosed_weight": 0
+          }
+        ],
+        "breaches": [],
+        "outcomes": [
+          [
+            {
+              "ticks": 3
+            },
+            "InstallGrant",
+            "installed",
+            ""
+          ],
+          [
+            {
+              "ticks": 4
+            },
+            "ActivateScope",
+            "activated",
+            ""
+          ],
+          [
+            {
+              "ticks": 7
+            },
+            "Transform",
+            "served",
+            ""
+          ]
+        ],
+        "truth_records": [
+          [
+            {
+              "record": {
+                "stream": "g",
+                "seq": 0
+              },
+              "scope": {
+                "stream": "g",
+                "epoch": 0
+              },
+              "weight": 1.0
+            },
+            {
+              "ticks": 0
+            }
+          ],
+          [
+            {
+              "record": {
+                "stream": "g",
+                "seq": 1
+              },
+              "scope": {
+                "stream": "g",
+                "epoch": 1
+              },
+              "weight": 1.0
+            },
+            {
+              "ticks": 5
+            }
+          ]
+        ],
+        "deliveries": [
+          {
+            "grant_id": "G",
+            "index": 0,
+            "record": null
+          },
+          {
+            "grant_id": "G",
+            "index": 1,
+            "record": null
+          },
+          {
+            "grant_id": "G",
+            "index": 0,
+            "record": {
+              "stream": "g",
+              "seq": 0
+            }
+          },
+          {
+            "grant_id": "G",
+            "index": 1,
+            "record": {
+              "stream": "g",
+              "seq": 0
+            }
+          }
+        ],
+        "horizon": "censored; pending demands remain pending"
+      }
+    }
+  }
+}

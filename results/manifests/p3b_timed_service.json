@@ -1,0 +1,22 @@
+{
+  "batch": "P3B",
+  "tests_run": 44,
+  "failures": 0,
+  "errors": 0,
+  "observations": {
+    "production_breach": {
+      "actual_first_tick": 4,
+      "public_detection_tick": 8,
+      "retained_after_rotation": true
+    },
+    "separate_deferral_reference": {
+      "tapes": 54,
+      "checkpoints": 162
+    },
+    "separate_capability_reference": {
+      "cases": 384
+    },
+    "initial_event_permutations": 24
+  },
+  "scope": "Abstract service integration; no timed crypto backend/performance/security proof."
+}

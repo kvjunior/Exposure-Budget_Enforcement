@@ -1,0 +1,100 @@
+{
+  "run_kind": "model-simulation (NOT a deployed-service measurement)",
+  "objective": "declared cost model (operation/miss units); no timings",
+  "env": {
+    "python": "3.12.3",
+    "platform": "Linux-6.18.44-fc-v180-x86_64-with-glibc2.39"
+  },
+  "instances": {
+    "feasible_2req_budget1": {
+      "n_requests": 2,
+      "budget_future_scopes": 1,
+      "oracle": {
+        "cost": 4.0,
+        "actions": [
+          "admit_grant",
+          "admit_grant"
+        ],
+        "replay_feasible": true,
+        "replay_cost": 4.0
+      },
+      "policies": {
+        "fixed_period": {
+          "cost": 15.0,
+          "gap_to_optimum": 11.0,
+          "n_decisions": 2
+        },
+        "greedy_history": {
+          "cost": 4.0,
+          "gap_to_optimum": 0.0,
+          "n_decisions": 2
+        },
+        "rolling_horizon": {
+          "cost": 4.0,
+          "gap_to_optimum": 0.0,
+          "n_decisions": 2
+        }
+      }
+    },
+    "infeasible_1req_budget0": {
+      "n_requests": 1,
+      "budget_future_scopes": 0,
+      "oracle": {
+        "cost": 10.0,
+        "actions": [
+          "defer"
+        ],
+        "replay_feasible": true,
+        "replay_cost": 10.0
+      },
+      "policies": {
+        "fixed_period": {
+          "cost": 10.0,
+          "gap_to_optimum": 0.0,
+          "n_decisions": 1
+        },
+        "greedy_history": {
+          "cost": 10.0,
+          "gap_to_optimum": 0.0,
+          "n_decisions": 1
+        },
+        "rolling_horizon": {
+          "cost": 10.0,
+          "gap_to_optimum": 0.0,
+          "n_decisions": 1
+        }
+      }
+    },
+    "feasible_3req_budget1": {
+      "n_requests": 3,
+      "budget_future_scopes": 1,
+      "oracle": {
+        "cost": 6.0,
+        "actions": [
+          "admit_grant",
+          "admit_grant",
+          "admit_grant"
+        ],
+        "replay_feasible": true,
+        "replay_cost": 6.0
+      },
+      "policies": {
+        "fixed_period": {
+          "cost": 17.0,
+          "gap_to_optimum": 11.0,
+          "n_decisions": 3
+        },
+        "greedy_history": {
+          "cost": 6.0,
+          "gap_to_optimum": 0.0,
+          "n_decisions": 3
+        },
+        "rolling_horizon": {
+          "cost": 6.0,
+          "gap_to_optimum": 0.0,
+          "n_decisions": 3
+        }
+      }
+    }
+  }
+}
