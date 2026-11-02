@@ -1,7 +1,7 @@
 # Coordinated Exposure-Budget Enforcement for Encrypted Data Services with Intermittent Owners
 
 **Anonymous research artifact for IEEE Transactions on Network and Service Management (IEEE TNSM).**  
-Repository: <https://anonymous.4open.science/r/Exposure-Budget_Enforcement-7A03/>
+Repository: <[https://anonymous.4open.science/r/Exposure-Budget_Enforcement-7A03/](https://anonymous.4open.science/r/Exposure-Budget_Enforcement-7A03/README.md)>
 
 This repository accompanies the manuscript *Coordinated Exposure-Budget Enforcement for Encrypted Data Services with Intermittent Owners*. It provides the model, policy/enforcement implementation, tests, synthetic event-driven workloads, raw per-run results, aggregate results, manuscript figures, and the anonymous paper source.
 
